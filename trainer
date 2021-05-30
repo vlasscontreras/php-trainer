@@ -2,6 +2,7 @@
 
 use Trainer\DesignPatterns\Adapter\Adapter;
 use Trainer\DesignPatterns\Decorator\Decorator;
+use Trainer\DesignPatterns\ResponsibilityChain\ResponsibilityChain;
 use Trainer\DesignPatterns\Strategy\Strategy;
 use Trainer\DesignPatterns\TemplateMethod\TemplateMethod;
 
@@ -32,5 +33,9 @@ switch ($exercise) {
 
     case 'strategy':
         Strategy::run();
+        break;
+
+    case 'responsibility-chain':
+        ResponsibilityChain::run();
         break;
 }

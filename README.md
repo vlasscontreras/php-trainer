@@ -51,3 +51,11 @@ This pattern is used to define a family of algorithms and make them interchangea
 ```bash
 php trainer strategy
 ```
+
+#### Chain of Responsibility
+
+This pattern is used to connect objects that can either handle or stop the execution of a request. This is done by storing a successor on each object, so in case one of the items in the chain did not result in a stopped exection, can instruct the next item to run its logic.
+
+```bash
+php trainer responsibility-chain
+```
