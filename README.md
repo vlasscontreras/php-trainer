@@ -38,7 +38,7 @@ php trainer adapter
 
 #### Template Method
 
-This pattern is used to illustrate the steps of an algorythm in class methods, but implementations might differ in some steps.
+This pattern is used to illustrate the steps of an algorithm in class methods, but implementations might differ in some steps.
 
 ```bash
 php trainer template-method
@@ -46,7 +46,7 @@ php trainer template-method
 
 #### Strategy
 
-This pattern is used to define a family of algorythms and make them interchangeable.
+This pattern is used to define a family of algorithms and make them interchangeable.
 
 ```bash
 php trainer strategy

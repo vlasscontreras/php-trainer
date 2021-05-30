@@ -3,7 +3,7 @@
 /**
  * The strategy pattern
  *
- * This pattern is used to define a family of algorythms and make
+ * This pattern is used to define a family of algorithms and make
  * them interchangeable.
  */
 
@@ -19,11 +19,11 @@ class Strategy implements ExecutableInterface
     public static function run(): void
     {
         /**
-         * All the algorythms are implemented the same way, but they
+         * All the algorithms are implemented the same way, but they
          * might differ inside.
          *
          * Logger is our application class that implements any of
-         * those algorythms.
+         * those algorithms.
          */
         $logger = new Logger();
 

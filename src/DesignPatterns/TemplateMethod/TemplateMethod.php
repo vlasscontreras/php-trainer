@@ -3,7 +3,7 @@
 /**
  * The template method design pattern
  *
- * This pattern is used to illustrate the steps of an algorythm in
+ * This pattern is used to illustrate the steps of an algorithm in
  * class methods, but implementations might differ in some steps.
  */
 
