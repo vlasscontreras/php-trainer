@@ -1,7 +1,7 @@
 <?php
 
-use Training\DesignPatterns\Adapter\Adapter;
-use Training\DesignPatterns\Decorator\Decorator;
+use Trainer\DesignPatterns\Adapter\Adapter;
+use Trainer\DesignPatterns\Decorator\Decorator;
 
 include './vendor/autoload.php';
 

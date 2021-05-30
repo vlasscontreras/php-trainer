@@ -1,8 +1,8 @@
 <?php
 
-namespace Training\DesignPatterns\Adapter;
+namespace Trainer\DesignPatterns\Adapter;
 
-use Training\DesignPatterns\Adapter\BookInterface;
+use Trainer\DesignPatterns\Adapter\BookInterface;
 
 class Person
 {

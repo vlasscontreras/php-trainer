@@ -1,5 +1,5 @@
 {
     "autoload": {
-        "psr-4": {"Training\\": "src/"}
+        "psr-4": {"Trainer\\": "src/"}
     }
 }

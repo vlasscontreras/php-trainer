@@ -1,6 +1,6 @@
 <?php
 
-namespace Training\DesignPatterns\Adapter;
+namespace Trainer\DesignPatterns\Adapter;
 
 interface BookInterface
 {

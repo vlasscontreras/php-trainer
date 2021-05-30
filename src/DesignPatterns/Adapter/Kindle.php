@@ -1,8 +1,8 @@
 <?php
 
-namespace Training\DesignPatterns\Adapter;
+namespace Trainer\DesignPatterns\Adapter;
 
-use Training\DesignPatterns\Adapter\EReaderInterface;
+use Trainer\DesignPatterns\Adapter\EReaderInterface;
 
 class Kindle implements EReaderInterface
 {

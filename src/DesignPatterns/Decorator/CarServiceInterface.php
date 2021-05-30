@@ -1,6 +1,6 @@
 <?php
 
-namespace Training\DesignPatterns\Decorator;
+namespace Trainer\DesignPatterns\Decorator;
 
 interface CarServiceInterface
 {

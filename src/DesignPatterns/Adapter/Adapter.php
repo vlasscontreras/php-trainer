@@ -11,13 +11,13 @@
  * and translate the equivalent methods to the implemented class.
  */
 
-namespace Training\DesignPatterns\Adapter;
+namespace Trainer\DesignPatterns\Adapter;
 
-use Training\DesignPatterns\Adapter\Book;
-use Training\DesignPatterns\Adapter\EReaderAdapter;
-use Training\DesignPatterns\Adapter\Kindle;
-use Training\DesignPatterns\Adapter\Person;
-use Training\ExecutableInterface;
+use Trainer\DesignPatterns\Adapter\Book;
+use Trainer\DesignPatterns\Adapter\EReaderAdapter;
+use Trainer\DesignPatterns\Adapter\Kindle;
+use Trainer\DesignPatterns\Adapter\Person;
+use Trainer\ExecutableInterface;
 
 class Adapter implements ExecutableInterface
 {

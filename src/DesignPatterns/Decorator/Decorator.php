@@ -11,12 +11,12 @@
  * wrapped object into accuount.
  */
 
-namespace Training\DesignPatterns\Decorator;
+namespace Trainer\DesignPatterns\Decorator;
 
-use Training\DesignPatterns\Decorator\BasicInspection;
-use Training\DesignPatterns\Decorator\OilChangeDecorator;
-use Training\DesignPatterns\Decorator\TireRotationDecorator;
-use Training\ExecutableInterface;
+use Trainer\DesignPatterns\Decorator\BasicInspection;
+use Trainer\DesignPatterns\Decorator\OilChangeDecorator;
+use Trainer\DesignPatterns\Decorator\TireRotationDecorator;
+use Trainer\ExecutableInterface;
 
 class Decorator implements ExecutableInterface
 {
@@ -35,7 +35,6 @@ class Decorator implements ExecutableInterface
 
         // Decorator 2.
         $tireRotation = new TireRotationDecorator($oilChange);
-
         echo $tireRotation->getDescription() . PHP_EOL; // Has the description of the 3 services.
         echo $tireRotation->getCost() . PHP_EOL; // Has the cost of the 3 services.
     }

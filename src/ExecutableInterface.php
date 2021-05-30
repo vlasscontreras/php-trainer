@@ -1,6 +1,6 @@
 <?php
 
-namespace Training;
+namespace Trainer;
 
 interface ExecutableInterface
 {

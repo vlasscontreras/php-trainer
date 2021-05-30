@@ -1,6 +1,6 @@
 <?php
 
-namespace Training\DesignPatterns\Decorator;
+namespace Trainer\DesignPatterns\Decorator;
 
 class TireRotationDecorator implements CarServiceInterface
 {
