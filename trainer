@@ -1,0 +1,26 @@
+<?php
+
+use Training\DesignPatterns\Adapter\Adapter;
+use Training\DesignPatterns\Decorator\Decorator;
+
+include './vendor/autoload.php';
+
+if (php_sapi_name() !== 'cli') {
+    throw new Exception('This file needs to be called from the command line.');
+}
+
+if (! isset($argv[1])) {
+    throw new Exception('Provide the exercise name as parameter. For example: adapter.');
+}
+
+$exercise = strtolower($argv[1]);
+
+switch ($exercise) {
+    case 'adapter':
+        Adapter::run();
+        break;
+
+    case 'decorator':
+        Decorator::run();
+        break;
+}
