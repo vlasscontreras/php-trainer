@@ -43,3 +43,11 @@ This pattern is used to illustrate the steps of an algorythm in class methods, b
 ```bash
 php trainer template-method
 ```
+
+#### Strategy
+
+This pattern is used to define a family of algorythms and make them interchangeable.
+
+```bash
+php trainer strategy
+```

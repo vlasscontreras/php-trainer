@@ -2,6 +2,7 @@
 
 use Trainer\DesignPatterns\Adapter\Adapter;
 use Trainer\DesignPatterns\Decorator\Decorator;
+use Trainer\DesignPatterns\Strategy\Strategy;
 use Trainer\DesignPatterns\TemplateMethod\TemplateMethod;
 
 include './vendor/autoload.php';
@@ -27,5 +28,9 @@ switch ($exercise) {
 
     case 'template-method':
         TemplateMethod::run();
+        break;
+
+    case 'strategy':
+        Strategy::run();
         break;
 }
