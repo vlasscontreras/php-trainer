@@ -1,0 +1,5 @@
+{
+	"phpcs.standard": "PSR12",
+	"phpcbf.standard": "PSR12",
+	"editor.insertSpaces": true
+}
