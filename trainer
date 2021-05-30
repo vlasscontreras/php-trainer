@@ -2,6 +2,7 @@
 
 use Trainer\DesignPatterns\Adapter\Adapter;
 use Trainer\DesignPatterns\Decorator\Decorator;
+use Trainer\DesignPatterns\TemplateMethod\TemplateMethod;
 
 include './vendor/autoload.php';
 
@@ -22,5 +23,9 @@ switch ($exercise) {
 
     case 'decorator':
         Decorator::run();
+        break;
+
+    case 'template-method':
+        TemplateMethod::run();
         break;
 }
