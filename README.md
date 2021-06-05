@@ -25,7 +25,7 @@ When a class needs to interact with another class without breaking the OCP, we m
 Decorators are classes which constructors wrap another objects who are intances of the same interface, and add behavior to have this wrapped object into accuount.
 
 ```bash
-php trainer decorator
+php trainer pattern:decorator
 ```
 
 #### Adapter
@@ -35,7 +35,7 @@ This pattern is essentially what it sounds like. When an object is not compatibl
 Adapters are classes that wrap an object of an incompatible type, and translate the equivalent methods to the implemented class.
 
 ```bash
-php trainer adapter
+php trainer pattern:adapter
 ```
 
 #### Template Method
@@ -43,7 +43,7 @@ php trainer adapter
 This pattern is used to illustrate the steps of an algorithm in class methods, but implementations might differ in some steps.
 
 ```bash
-php trainer template-method
+php trainer pattern:template-method
 ```
 
 #### Strategy
@@ -51,7 +51,7 @@ php trainer template-method
 This pattern is used to define a family of algorithms and make them interchangeable.
 
 ```bash
-php trainer strategy
+php trainer pattern:strategy
 ```
 
 #### Chain of Responsibility
@@ -59,7 +59,7 @@ php trainer strategy
 This pattern is used to connect objects that can either handle or stop the execution of a request. This is done by storing a successor on each object, so in case one of the items in the chain did not result in a stopped exection, can instruct the next item to run its logic.
 
 ```bash
-php trainer responsibility-chain
+php trainer pattern:responsibility-chain
 ```
 
 #### Observer
@@ -69,5 +69,5 @@ This pattern is used to observe execution of actions in a class (subject), but t
 Pretty much like: Event happens -> Notify listeners.
 
 ```bash
-php trainer observer
+php trainer pattern:observer
 ```

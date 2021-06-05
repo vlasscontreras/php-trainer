@@ -20,27 +20,28 @@ if (! isset($argv[1])) {
 $exercise = strtolower($argv[1]);
 
 switch ($exercise) {
-    case 'adapter':
+    // Design patterns.
+    case 'pattern:adapter':
         Adapter::run();
         break;
 
-    case 'decorator':
+    case 'pattern:decorator':
         Decorator::run();
         break;
 
-    case 'template-method':
+    case 'pattern:template-method':
         TemplateMethod::run();
         break;
 
-    case 'strategy':
+    case 'pattern:strategy':
         Strategy::run();
         break;
 
-    case 'responsibility-chain':
+    case 'pattern:responsibility-chain':
         ResponsibilityChain::run();
         break;
 
-    case 'observer':
+    case 'pattern:observer':
         Observer::run();
         break;
 }
