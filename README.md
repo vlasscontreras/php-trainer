@@ -1,5 +1,7 @@
 # PHP Training Classes
 
+[![Test](https://github.com/vlasscontreras/training-php/actions/workflows/test.yml/badge.svg)](https://github.com/vlasscontreras/training-php/actions/workflows/test.yml)
+
 These are the trainig classes I followed prior to my Zend certification.
 
 ## Installation
