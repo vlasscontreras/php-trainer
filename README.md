@@ -81,3 +81,11 @@ It returns `-1`, `0` or `1` when `$a` is respectively less than, equal to, or gr
 ```bash
 php trainer operator:spaceship
 ```
+
+#### Null Coalesce Operator
+
+It returns the value of `$a` if it's defined, otherwise it will return the fallback.
+
+```bash
+php trainer operator:null-coalesce
+```
