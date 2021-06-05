@@ -16,6 +16,16 @@ composer dump-autoload
 
 There are multiple classes and exercises that can be executed.
 
+### General
+
+#### Grouped Imports
+
+Instead of defining the entire class path, we can group imports of a namespace into one curly brace group.
+
+```bash
+php trainer grouped-imports
+```
+
 ### Design Patterns
 
 #### Decorator

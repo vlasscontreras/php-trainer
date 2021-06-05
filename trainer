@@ -6,6 +6,7 @@ use Trainer\DesignPatterns\Observer\Observer;
 use Trainer\DesignPatterns\ResponsibilityChain\ResponsibilityChain;
 use Trainer\DesignPatterns\Strategy\Strategy;
 use Trainer\DesignPatterns\TemplateMethod\TemplateMethod;
+use Trainer\General\GroupedImports;
 use Trainer\Operators\NullCoalesce;
 use Trainer\Operators\Spaceship;
 
@@ -22,6 +23,11 @@ if (! isset($argv[1])) {
 $exercise = strtolower($argv[1]);
 
 switch ($exercise) {
+    // General.
+    case 'grouped-imports':
+        GroupedImports::run();
+        break;
+
     // Design patterns.
     case 'pattern:adapter':
         Adapter::run();
