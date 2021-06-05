@@ -7,10 +7,10 @@
  * a namespace into one curly brace group.
  */
 
-namespace Trainer\General;
+namespace Trainer\General\GroupedImports;
 
 use Trainer\ExecutableInterface;
-use Trainer\General\Types\{
+use Trainer\General\GroupedImports\Types\{
     Person,
     Animal,
     Environment\Water,

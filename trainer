@@ -6,7 +6,7 @@ use Trainer\DesignPatterns\Observer\Observer;
 use Trainer\DesignPatterns\ResponsibilityChain\ResponsibilityChain;
 use Trainer\DesignPatterns\Strategy\Strategy;
 use Trainer\DesignPatterns\TemplateMethod\TemplateMethod;
-use Trainer\General\GroupedImports;
+use Trainer\General\GroupedImports\GroupedImports;
 use Trainer\Operators\NullCoalesce;
 use Trainer\Operators\Spaceship;
 
