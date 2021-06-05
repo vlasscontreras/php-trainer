@@ -59,3 +59,13 @@ This pattern is used to connect objects that can either handle or stop the execu
 ```bash
 php trainer responsibility-chain
 ```
+
+#### Observer
+
+This pattern is used to observe execution of actions in a class (subject), but this subject class doesn't need to be aware of anything of those observers. A list observers subscribes (or observes) a subject, and the subject notifies all of them once the triggering action occurs.
+
+Pretty much like: Event happens -> Notify listeners.
+
+```bash
+php trainer observer
+```
