@@ -71,3 +71,13 @@ Pretty much like: Event happens -> Notify listeners.
 ```bash
 php trainer pattern:observer
 ```
+
+### Operators
+
+#### Spaceship Operator
+
+It returns `-1`, `0` or `1` when `$a` is respectively less than, equal to, or greater than `$b`. Comparisons are performed according to PHP's usual type [comparison rules](https://www.php.net/manual/en/types.comparisons.php).
+
+```bash
+php trainer operator:spaceship
+```

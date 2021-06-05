@@ -6,6 +6,7 @@ use Trainer\DesignPatterns\Observer\Observer;
 use Trainer\DesignPatterns\ResponsibilityChain\ResponsibilityChain;
 use Trainer\DesignPatterns\Strategy\Strategy;
 use Trainer\DesignPatterns\TemplateMethod\TemplateMethod;
+use Trainer\Operators\Spaceship;
 
 include './vendor/autoload.php';
 
@@ -43,5 +44,10 @@ switch ($exercise) {
 
     case 'pattern:observer':
         Observer::run();
+        break;
+
+    // Operators.
+    case 'operator:spaceship':
+        Spaceship::run();
         break;
 }
