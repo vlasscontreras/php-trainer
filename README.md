@@ -324,6 +324,29 @@ $captain->manage(new HumanWorker());
 php trainer principle:interface-segregation
 ```
 
+#### Dependency Inversion
+
+The **D** in **SOLID**. This principle dictates that high-level (isn't concerned about details and specifics) modules should not depend on low-level (it is more concerned about details and specifics) modules. Instead, they should depend on abstractions, not concretions. Low-level module should also depend on abstractions.
+
+```php
+$databaseConnection = new DatabaseConnection(); // Conforms to ConnectionInterface.
+
+/**
+ * The password reminder expects a ConnectionInterface, not the
+ * DataBaseConnection concretion, hence depends on an abstraction as
+ * well, not a concretion.
+ */
+$passwordReminder = new PasswordReminder($databaseConnection);
+```
+
+**Full example:** `src/Principles/DependencyInversion/DependencyInversion.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer principle:dependency-inversion
+```
+
 ### Design Patterns
 
 #### Decorator

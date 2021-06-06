@@ -31,6 +31,7 @@ class Trainer
         \Trainer\Operators\NullCoalesce::class,
         \Trainer\Operators\Nullsafe::class,
         \Trainer\Operators\Spaceship::class,
+        \Trainer\Principles\DependencyInversion\DependencyInversion::class,
         \Trainer\Principles\InterfaceSegregation\InterfaceSegregation::class,
         \Trainer\Principles\LiskovSubstitution\LiskovSubstitution::class,
         \Trainer\Principles\OpenClosed\OpenClosed::class,
