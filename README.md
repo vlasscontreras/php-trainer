@@ -251,6 +251,31 @@ echo $salesReport->between(new DateTime(), new DateTime(), $formatter);
 php trainer principle:single-responsibility
 ```
 
+#### Open-Closed Principle
+
+The **O** in **SOLID**. This principle dictates that classes must be closed for modification but open for extension.
+
+```php
+$receipt = new Receipt(1000);
+$checkout = new Checkout();
+
+// Can accept any implementation of the appropriate interface.
+$stripe = new StripePaymentGateway();
+$checkout->pay($receipt, $stripe);
+
+// This one works too!
+$paypal = new PayPalPaymentGateway();
+$checkout->pay($receipt, $paypal);
+```
+
+**Full example:** `src/Principles/OpenClosed/OpenClosed.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer principle:open-closed
+```
+
 ### Design Patterns
 
 #### Decorator
