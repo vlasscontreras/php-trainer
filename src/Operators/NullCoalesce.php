@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The null coalesce operator
+ * The null coalesce operator (PHP ^7.0)
  *
  * It returns the value of $a if it's defined, otherwise it will
  * return $b.

@@ -18,7 +18,7 @@ There are multiple classes and exercises that can be executed.
 
 ### General
 
-#### Grouped Imports
+#### Grouped Imports (PHP ^7.0)
 
 Instead of defining the entire class path, we can group imports of a namespace into one curly brace group.
 
@@ -26,7 +26,7 @@ Instead of defining the entire class path, we can group imports of a namespace i
 php trainer grouped-imports
 ```
 
-#### Anonymous Classes
+#### Anonymous Classes (PHP ^7.0)
 
 These classes are not files, but code blocks that define a nameless class just like anonymous functions. Use with caution! Suitable for cases where you want to change things on the fly, tests with mockery, debugging, etc.
 
@@ -92,7 +92,7 @@ php trainer pattern:observer
 
 ### Operators
 
-#### Spaceship Operator
+#### Spaceship Operator (PHP ^7.0)
 
 It returns `-1`, `0` or `1` when `$a` is respectively less than, equal to, or greater than `$b`. Comparisons are performed according to PHP's usual type [comparison rules](https://www.php.net/manual/en/types.comparisons.php).
 
@@ -100,7 +100,7 @@ It returns `-1`, `0` or `1` when `$a` is respectively less than, equal to, or gr
 php trainer operator:spaceship
 ```
 
-#### Null Coalesce Operator
+#### Null Coalesce Operator (PHP ^7.0)
 
 It returns the value of `$a` if it's defined, otherwise it will return the fallback.
 
@@ -108,7 +108,7 @@ It returns the value of `$a` if it's defined, otherwise it will return the fallb
 php trainer operator:null-coalesce
 ```
 
-#### Nullsafe Operator
+#### Nullsafe Operator (PHP ^8.0)
 
 It runs a check if the value is defined in a chain-like syntax making the code cleaner for when a value in a chain might not be defined.
 

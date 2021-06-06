@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Grouped imports
+ * Grouped imports (PHP ^7.0)
  *
  * Instead of defining the entire class path, we can group imports of
  * a namespace into one curly brace group.

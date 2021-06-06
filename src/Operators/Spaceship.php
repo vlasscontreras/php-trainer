@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The spaceship operator
+ * The spaceship operator (PHP ^7.0)
  *
  * It returns -1, 0 or 1 when $a is respectively less than, equal to,
  * or greater than $b. Comparisons are performed according to PHP's

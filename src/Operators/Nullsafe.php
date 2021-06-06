@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The nullsafe operator
+ * The nullsafe operator (PHP ^8.0)
  *
  * It runs a check if the value is defined in a chain-like syntax
  * making the code cleaner for when a value in a chain might not

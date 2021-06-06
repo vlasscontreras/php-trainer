@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Anonymouse classes
+ * Anonymouse classes (PHP ^7.0)
  *
  * These classes are not files, but code blocks that define a nameless
  * class just like anonymous functions. Use with caution! Suitable for
