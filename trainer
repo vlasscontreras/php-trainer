@@ -9,6 +9,7 @@ use Trainer\DesignPatterns\TemplateMethod\TemplateMethod;
 use Trainer\General\AnonymousClasses\AnonymousClasses;
 use Trainer\General\GroupedImports\GroupedImports;
 use Trainer\Operators\NullCoalesce;
+use Trainer\Operators\Nullsafe;
 use Trainer\Operators\Spaceship;
 
 include './vendor/autoload.php';
@@ -65,5 +66,9 @@ switch ($exercise) {
 
     case 'operator:null-coalesce':
         NullCoalesce::run();
+        break;
+
+    case 'operator:nullsafe':
+        Nullsafe::run();
         break;
 }

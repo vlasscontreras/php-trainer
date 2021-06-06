@@ -107,3 +107,11 @@ It returns the value of `$a` if it's defined, otherwise it will return the fallb
 ```bash
 php trainer operator:null-coalesce
 ```
+
+#### Nullsafe Operator
+
+It runs a check if the value is defined in a chain-like syntax making the code cleaner for when a value in a chain might not be defined.
+
+```bash
+php trainer operator:nullsafe
+```
