@@ -9,10 +9,15 @@
 
 namespace Trainer\General\DynamicClassAccess;
 
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class DynamicClassAccess implements ExecutableInterface
+class DynamicClassAccess extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'dynamic-class-access';
+
     /**
      * @inheritdoc
      */

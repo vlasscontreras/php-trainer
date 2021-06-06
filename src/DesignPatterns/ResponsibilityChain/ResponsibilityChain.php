@@ -15,10 +15,15 @@ namespace Trainer\DesignPatterns\ResponsibilityChain;
 use Trainer\DesignPatterns\ResponsibilityChain\AlarmChecker;
 use Trainer\DesignPatterns\ResponsibilityChain\LightsChecker;
 use Trainer\DesignPatterns\ResponsibilityChain\LockChecker;
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class ResponsibilityChain implements ExecutableInterface
+class ResponsibilityChain extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'pattern:responsibility-chain';
+
     /**
      * @inheritdoc
      */

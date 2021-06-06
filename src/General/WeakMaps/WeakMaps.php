@@ -3,11 +3,16 @@
 namespace Trainer\General\WeakMaps;
 
 use stdClass;
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 use WeakMap;
 
-class WeakMaps implements ExecutableInterface
+class WeakMaps extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'weak-maps';
+
     /**
      * @inheritdoc
      */

@@ -231,7 +231,7 @@ These are good practices that help the developer write code that is more scalabl
 
 #### Single Responsibility Principle
 
-The S in SOLID. This principle dictates that each class should do just one thing.
+The **S** in **SOLID**. This principle dictates that each class should do just one thing.
 
 ```php
 $salesReport = new SalesReporter();
@@ -248,7 +248,7 @@ echo $salesReport->between(new DateTime(), new DateTime(), $formatter);
 ▶️ Run exercise:
 
 ```bash
-php trainer principles:single-responsibility
+php trainer principle:single-responsibility
 ```
 
 ### Design Patterns

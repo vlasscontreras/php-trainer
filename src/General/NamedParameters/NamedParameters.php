@@ -13,10 +13,15 @@
 namespace Trainer\General\NamedParameters;
 
 use DateTime;
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class NamedParameters implements ExecutableInterface
+class NamedParameters extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'named-patterns';
+
     /**
      * @inheritdoc
      */

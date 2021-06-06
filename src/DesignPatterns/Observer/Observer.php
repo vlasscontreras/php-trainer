@@ -16,10 +16,15 @@ namespace Trainer\DesignPatterns\Observer;
 use Trainer\DesignPatterns\Observer\Auth;
 use Trainer\DesignPatterns\Observer\EmailObserver;
 use Trainer\DesignPatterns\Observer\LogObserver;
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class Observer implements ExecutableInterface
+class Observer extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'pattern:observer';
+
     /**
      * @inheritdoc
      */

@@ -13,10 +13,15 @@
 
 namespace Trainer\Operators;
 
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class Spaceship implements ExecutableInterface
+class Spaceship extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'operator:spaceship';
+
     /**
      * @inheritdoc
      */

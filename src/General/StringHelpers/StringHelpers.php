@@ -9,10 +9,15 @@
 
 namespace Trainer\General\StringHelpers;
 
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class StringHelpers implements ExecutableInterface
+class StringHelpers extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'string-helpers';
+
     /**
      * @inheritdoc
      */

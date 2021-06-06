@@ -12,10 +12,14 @@
 namespace Trainer\General\AnonymousClasses;
 
 use Trainer\General\AnonymousClasses\LoggerInterface;
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class AnonymousClasses implements ExecutableInterface
+class AnonymousClasses extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'anonymous-classes';
 
     /**
      * @inheritdoc

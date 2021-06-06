@@ -16,10 +16,15 @@ namespace Trainer\DesignPatterns\Decorator;
 use Trainer\DesignPatterns\Decorator\BasicInspection;
 use Trainer\DesignPatterns\Decorator\OilChangeDecorator;
 use Trainer\DesignPatterns\Decorator\TireRotationDecorator;
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class Decorator implements ExecutableInterface
+class Decorator extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'pattern:decorator';
+
     /**
      * @inheritdoc
      */

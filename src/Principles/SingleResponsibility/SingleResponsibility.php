@@ -9,10 +9,15 @@
 namespace Trainer\Principles\SingleResponsibility;
 
 use DateTime;
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class SingleResponsibility implements ExecutableInterface
+class SingleResponsibility extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'principle:single-responsibility';
+
     /**
      * @inheritdoc
      */

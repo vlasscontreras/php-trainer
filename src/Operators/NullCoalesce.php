@@ -12,10 +12,15 @@
 
 namespace Trainer\Operators;
 
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class NullCoalesce implements ExecutableInterface
+class NullCoalesce extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'operator:null-coalesce';
+
     /**
      * @inheritdoc
      */

@@ -11,10 +11,15 @@
 namespace Trainer\Operators;
 
 use stdClass;
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class Nullsafe implements ExecutableInterface
+class Nullsafe extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'operator:nullsafe';
+
     /**
      * @inheritdoc
      */

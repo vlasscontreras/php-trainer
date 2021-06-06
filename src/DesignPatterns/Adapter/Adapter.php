@@ -17,10 +17,15 @@ use Trainer\DesignPatterns\Adapter\Book;
 use Trainer\DesignPatterns\Adapter\EReaderAdapter;
 use Trainer\DesignPatterns\Adapter\Kindle;
 use Trainer\DesignPatterns\Adapter\Person;
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class Adapter implements ExecutableInterface
+class Adapter extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'pattern:adapter';
+
     /**
      * @inheritdoc
      */

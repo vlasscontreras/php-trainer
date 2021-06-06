@@ -9,15 +9,20 @@
 
 namespace Trainer\General\GroupedImports;
 
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 use Trainer\General\GroupedImports\Types\{
     Person,
     Animal,
     Environment\Water,
 };
 
-class GroupedImports implements ExecutableInterface
+class GroupedImports extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'grouped-imports';
+
     /**
      * @inheritdoc
      */

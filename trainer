@@ -1,25 +1,5 @@
 <?php
 
-use Trainer\DesignPatterns\Adapter\Adapter;
-use Trainer\DesignPatterns\Decorator\Decorator;
-use Trainer\DesignPatterns\Observer\Observer;
-use Trainer\DesignPatterns\ResponsibilityChain\ResponsibilityChain;
-use Trainer\DesignPatterns\Strategy\Strategy;
-use Trainer\DesignPatterns\TemplateMethod\TemplateMethod;
-use Trainer\General\AnonymousClasses\AnonymousClasses;
-use Trainer\General\ConstructorPropertyPromotion\ConstructorPropertyPromotion;
-use Trainer\General\DynamicClassAccess\DynamicClassAccess;
-use Trainer\General\GroupedImports\GroupedImports;
-use Trainer\General\MatchedExpressions\MatchedExpressions;
-use Trainer\General\NamedParameters\NamedParameters;
-use Trainer\General\StringHelpers\StringHelpers;
-use Trainer\General\UnionTypes\UnionTypes;
-use Trainer\General\WeakMaps\WeakMaps;
-use Trainer\Operators\NullCoalesce;
-use Trainer\Operators\Nullsafe;
-use Trainer\Operators\Spaceship;
-use Trainer\Principles\SingleResponsibility\SingleResponsibility;
-
 include './vendor/autoload.php';
 
 if (php_sapi_name() !== 'cli') {
@@ -32,84 +12,5 @@ if (! isset($argv[1])) {
 
 $exercise = strtolower($argv[1]);
 
-switch ($exercise) {
-    // General.
-    case 'grouped-imports':
-        GroupedImports::run();
-        break;
-
-    case 'anonymous-classes':
-        AnonymousClasses::run();
-        break;
-
-    case 'matched-expressions':
-        MatchedExpressions::run();
-        break;
-
-    case 'constructor-property-promotion':
-        ConstructorPropertyPromotion::run();
-        break;
-
-    case 'dynamic-class-access':
-        DynamicClassAccess::run();
-        break;
-
-    case 'named-parameters':
-        NamedParameters::run();
-        break;
-
-    case 'string-helpers':
-        StringHelpers::run();
-        break;
-
-    case 'weak-maps':
-        WeakMaps::run();
-        break;
-
-    case 'union-types':
-        UnionTypes::run();
-        break;
-
-    // SOLID principles
-    case 'principles:single-responsibility':
-        SingleResponsibility::run();
-        break;
-
-    // Design patterns.
-    case 'pattern:adapter':
-        Adapter::run();
-        break;
-
-    case 'pattern:decorator':
-        Decorator::run();
-        break;
-
-    case 'pattern:template-method':
-        TemplateMethod::run();
-        break;
-
-    case 'pattern:strategy':
-        Strategy::run();
-        break;
-
-    case 'pattern:responsibility-chain':
-        ResponsibilityChain::run();
-        break;
-
-    case 'pattern:observer':
-        Observer::run();
-        break;
-
-    // Operators.
-    case 'operator:spaceship':
-        Spaceship::run();
-        break;
-
-    case 'operator:null-coalesce':
-        NullCoalesce::run();
-        break;
-
-    case 'operator:nullsafe':
-        Nullsafe::run();
-        break;
-}
+$trainer = new \Trainer\Commands\Trainer();
+$trainer->run($exercise);

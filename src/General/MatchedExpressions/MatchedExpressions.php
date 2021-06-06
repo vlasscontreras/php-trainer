@@ -11,10 +11,15 @@
 
 namespace Trainer\General\MatchedExpressions;
 
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class MatchedExpressions implements ExecutableInterface
+class MatchedExpressions extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'matched-expressions';
+
     /**
      * @inheritdoc
      */

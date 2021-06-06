@@ -9,10 +9,15 @@
 
 namespace Trainer\DesignPatterns\TemplateMethod;
 
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class TemplateMethod implements ExecutableInterface
+class TemplateMethod extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'pattern:template-method';
+
     /**
      * @inheritdoc
      */

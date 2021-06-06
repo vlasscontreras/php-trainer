@@ -3,10 +3,15 @@
 namespace Trainer\General\UnionTypes;
 
 use DateTime;
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class UnionTypes implements ExecutableInterface
+class UnionTypes extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'union-types';
+
     /**
      * @inheritdoc
      */

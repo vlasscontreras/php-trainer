@@ -2,10 +2,15 @@
 
 namespace Trainer\General\ConstructorPropertyPromotion;
 
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class ConstructorPropertyPromotion implements ExecutableInterface
+class ConstructorPropertyPromotion extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'constructor-property-promotion';
+
     /**
      * @inheritdoc
      */

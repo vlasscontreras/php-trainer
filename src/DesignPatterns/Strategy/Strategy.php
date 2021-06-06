@@ -9,10 +9,15 @@
 
 namespace Trainer\DesignPatterns\Strategy;
 
-use Trainer\ExecutableInterface;
+use Trainer\Executable;
 
-class Strategy implements ExecutableInterface
+class Strategy extends Executable
 {
+    /**
+     * @inheritdoc
+     */
+    public const SIGNATURE = 'pattern:strategy';
+
     /**
      * @inheritdoc
      */
