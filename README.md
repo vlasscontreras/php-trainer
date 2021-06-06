@@ -161,6 +161,27 @@ str_contains($id, 'o4Fs'); // false.
 php trainer string-helpers
 ```
 
+#### Weak Maps (PHP ^8.0)
+
+Is map (or dictionary) that accepts objects as keys. Unlike SplObjectStorage, an object in a key of WeakMap does not contribute toward the object's reference count. That is, if at any point the only remaining reference to an object is the key of a WeakMap, the object will be garbage collected and removed from the WeakMap.
+
+```php
+$object = new stdClass();
+$store = new WeakMap();
+
+$store[$object] = 'Anything'; // Now the object is in the map.
+
+unset($object); // It's also removed from the map.
+```
+
+**Full example:** `src/General/WeakMaps/WeakMaps.php`.
+
+▶️ Run exercise:
+
+```bash
+php trainer weak-maps
+```
+
 ### Design Patterns
 
 #### Decorator

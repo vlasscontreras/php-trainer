@@ -13,6 +13,7 @@ use Trainer\General\GroupedImports\GroupedImports;
 use Trainer\General\MatchedExpressions\MatchedExpressions;
 use Trainer\General\NamedParameters\NamedParameters;
 use Trainer\General\StringHelpers\StringHelpers;
+use Trainer\General\WeakMaps\WeakMaps;
 use Trainer\Operators\NullCoalesce;
 use Trainer\Operators\Nullsafe;
 use Trainer\Operators\Spaceship;
@@ -57,6 +58,10 @@ switch ($exercise) {
 
     case 'string-helpers':
         StringHelpers::run();
+        break;
+
+    case 'weak-maps':
+        WeakMaps::run();
         break;
 
     // Design patterns.
