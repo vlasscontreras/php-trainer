@@ -18,6 +18,7 @@ use Trainer\General\WeakMaps\WeakMaps;
 use Trainer\Operators\NullCoalesce;
 use Trainer\Operators\Nullsafe;
 use Trainer\Operators\Spaceship;
+use Trainer\Principles\SingleResponsibility\SingleResponsibility;
 
 include './vendor/autoload.php';
 
@@ -67,6 +68,11 @@ switch ($exercise) {
 
     case 'union-types':
         UnionTypes::run();
+        break;
+
+    // SOLID principles
+    case 'principles:single-responsibility':
+        SingleResponsibility::run();
         break;
 
     // Design patterns.

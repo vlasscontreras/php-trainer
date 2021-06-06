@@ -225,6 +225,32 @@ cancel(new stdClass());
 cancel(12);
 ```
 
+### SOLID Principles
+
+These are good practices that help the developer write code that is more scalable and maintanble.
+
+#### Single Responsibility Principle
+
+The S in SOLID. This principle dictates that each class should do just one thing.
+
+```php
+$salesReport = new SalesReporter();
+
+$formatter = new HtmlOutput();
+echo $salesReport->between(new DateTime(), new DateTime(), $formatter);
+
+$formatter = new PlainOutput();
+echo $salesReport->between(new DateTime(), new DateTime(), $formatter);
+```
+
+**Full example:** `src/Principles/SingleResponsibility/SingleResponsibility.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer principles:single-responsibility
+```
+
 ### Design Patterns
 
 #### Decorator
