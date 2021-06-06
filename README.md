@@ -276,6 +276,30 @@ $checkout->pay($receipt, $paypal);
 php trainer principle:open-closed
 ```
 
+#### Liskov Substitution Principle
+
+The **L** in **SOLID**. This principle dictates that derived classes (implementation of an abstraction or interface) must be substitutable for their base class (anywhere where the abstraction is accepted). Essentially, any LSP-compliant class should have the same contract including return types.
+
+```php
+$fileReporitory = new FileLessonRepository();
+$databaseRepository = new DatabaseLessonRepository();
+
+/**
+ * We should be able to use either of them since both follow
+ * the same contract with the same return types, and all.
+ */
+echo showLessons($fileReporitory) . PHP_EOL;
+echo showLessons($databaseRepository) . PHP_EOL;
+```
+
+**Full example:** `src/Principles/LiskovSubstitution/LiskovSubstitution.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer principle:liskov-substitution
+```
+
 ### Design Patterns
 
 #### Decorator

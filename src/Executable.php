@@ -16,5 +16,5 @@ abstract class Executable
      *
      * @return void
      */
-    abstract public static function run();
+    abstract public static function run(): void;
 }
