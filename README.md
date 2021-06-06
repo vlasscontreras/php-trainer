@@ -300,6 +300,30 @@ echo showLessons($databaseRepository) . PHP_EOL;
 php trainer principle:liskov-substitution
 ```
 
+#### Interface Segregation
+
+The **I** in **SOLID**. This principle dictates clients should not be forced to implement an interface they don't use. This can be interpreted and implemented thinking on the knowledge each class need from each other.
+
+If a class `TypeA` only needs a little portion of data or behavior of a given object, that's when this principle suggests to segregate the implementation and only ask for an abstraction or interface `InterfaceA`, so any class implementing it, can be used by `TypeA`, since what the `InterfaceA` contract introduces, is all what we need.
+
+```php
+$captain = new Captain();
+
+// Androids work.
+$captain->manage(new AndroidWorker());
+
+// Humans work, but also sleep.
+$captain->manage(new HumanWorker());
+```
+
+**Full example:** `src/Principles/InterfaceSegregation/InterfaceSegregation.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer principle:interface-segregation
+```
+
 ### Design Patterns
 
 #### Decorator
