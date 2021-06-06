@@ -12,6 +12,7 @@ use Trainer\General\DynamicClassAccess\DynamicClassAccess;
 use Trainer\General\GroupedImports\GroupedImports;
 use Trainer\General\MatchedExpressions\MatchedExpressions;
 use Trainer\General\NamedParameters\NamedParameters;
+use Trainer\General\StringHelpers\StringHelpers;
 use Trainer\Operators\NullCoalesce;
 use Trainer\Operators\Nullsafe;
 use Trainer\Operators\Spaceship;
@@ -52,6 +53,10 @@ switch ($exercise) {
 
     case 'named-parameters':
         NamedParameters::run();
+        break;
+
+    case 'string-helpers':
+        StringHelpers::run();
         break;
 
     // Design patterns.

@@ -142,6 +142,25 @@ $invoice = new Invoice(
 php trainer named-parameters
 ```
 
+#### String Helpers (PHP ^8.0)
+
+To determine if a string starts or ends with another string, or if a string contains another string.
+
+```php
+$id = 'ch_1IzO7K2eZvKYlo2CIGjQqdcy';
+str_starts_with($id, 'ch_'); // true.
+str_ends_with($id, 'dcy'); // true.
+str_contains($id, 'o4Fs'); // false.
+```
+
+**Full example:** `src/General/StringHelpers/StringHelpers.php`.
+
+▶️ Run exercise:
+
+```bash
+php trainer string-helpers
+```
+
 ### Design Patterns
 
 #### Decorator
