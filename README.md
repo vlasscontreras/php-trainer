@@ -208,6 +208,23 @@ cancel(new stdClass());
 php trainer union-types
 ```
 
+#### Mixed Pseudo Type (PHP ^8.0)
+
+In terms of consistency, if you just like to type-hint everything, you can use the `mixed` keyword which its behavior is exactly the same as not putting it. It indicates that the value for the parameter can be of any type.
+
+```php
+function cancel(mixed $when) // function cancel($when) {}
+{
+    print_r($when);
+}
+
+// It works.
+cancel('next week');
+cancel(new DateTime());
+cancel(new stdClass());
+cancel(12);
+```
+
 ### Design Patterns
 
 #### Decorator
