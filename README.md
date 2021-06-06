@@ -182,6 +182,32 @@ unset($object); // It's also removed from the map.
 php trainer weak-maps
 ```
 
+#### Union Types (PHP ^8.0)
+
+When a function/method can handle multiple (but specific) types of arguments, we can type-hint those in the function definition. Notice that this kind of existed in PHP 7 with the `?` before the type token, but it was just an union between the given type and `null`.
+
+```php
+function cancel(string | DateTime $when)
+{
+    print_r($when);
+}
+
+// It works.
+cancel('next week');
+cancel(new DateTime());
+
+// It won't.
+cancel(new stdClass());
+```
+
+**Full example:** `src/General/UnionTypes/UnionTypes.php`.
+
+▶️ Run exercise:
+
+```bash
+php trainer union-types
+```
+
 ### Design Patterns
 
 #### Decorator

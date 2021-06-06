@@ -13,6 +13,7 @@ use Trainer\General\GroupedImports\GroupedImports;
 use Trainer\General\MatchedExpressions\MatchedExpressions;
 use Trainer\General\NamedParameters\NamedParameters;
 use Trainer\General\StringHelpers\StringHelpers;
+use Trainer\General\UnionTypes\UnionTypes;
 use Trainer\General\WeakMaps\WeakMaps;
 use Trainer\Operators\NullCoalesce;
 use Trainer\Operators\Nullsafe;
@@ -62,6 +63,10 @@ switch ($exercise) {
 
     case 'weak-maps':
         WeakMaps::run();
+        break;
+
+    case 'union-types':
+        UnionTypes::run();
         break;
 
     // Design patterns.
