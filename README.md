@@ -121,6 +121,27 @@ $object::class === get_class($object);
 php trainer dynamic-class-access
 ```
 
+#### Named Parameters (PHP ^8.0)
+
+A function or class method with parameters, can be invoked with those paramteres in any order (hence, not the order they were in the function definition) as long as they include the name. Notice that this approach couples the function calls to the actual parameter names in the function definition.
+
+```php
+$invoice = new Invoice(
+    description: 'Web Development Services',
+    chargeDate: new DateTime(),
+    amount: 1000,
+    paid: true
+);
+```
+
+**Full example:** `src/General/NamedParameters/NamedParameters.php`.
+
+▶️ Run exercise:
+
+```bash
+php trainer named-parameters
+```
+
 ### Design Patterns
 
 #### Decorator

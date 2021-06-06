@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Dynamic Class Access (PHP ^8.0)
+ *
+ * The `::class` value of a class is also available in objects on a
+ * variable. Functionally equivalent to `get_class()`.
+ */
+
 namespace Trainer\General\DynamicClassAccess;
 
 use Trainer\ExecutableInterface;

@@ -11,6 +11,7 @@ use Trainer\General\ConstructorPropertyPromotion\ConstructorPropertyPromotion;
 use Trainer\General\DynamicClassAccess\DynamicClassAccess;
 use Trainer\General\GroupedImports\GroupedImports;
 use Trainer\General\MatchedExpressions\MatchedExpressions;
+use Trainer\General\NamedParameters\NamedParameters;
 use Trainer\Operators\NullCoalesce;
 use Trainer\Operators\Nullsafe;
 use Trainer\Operators\Spaceship;
@@ -47,6 +48,10 @@ switch ($exercise) {
 
     case 'dynamic-class-access':
         DynamicClassAccess::run();
+        break;
+
+    case 'named-parameters':
+        NamedParameters::run();
         break;
 
     // Design patterns.
