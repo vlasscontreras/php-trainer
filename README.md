@@ -92,7 +92,6 @@ class Person
     {
     }
 }
-
 ```
 
 **Full example:** `src/General/ConstructorPropertyPromotion/ConstructorPropertyPromotion.php`.
@@ -101,6 +100,25 @@ class Person
 
 ```bash
 php trainer constructor-property-promotion
+```
+
+#### Dynamic Class Access (PHP ^8.0)
+
+The `::class` value of a class is also available in objects on a variable. Functionally equivalent to `get_class()`.
+
+```php
+$object = new SomeClass();
+echo $object::class;
+
+$object::class === get_class($object);
+```
+
+**Full example:** `src/General/DynamicClassAccess/DynamicClassAccess.php`.
+
+▶️ Run exercise:
+
+```bash
+php trainer dynamic-class-access
 ```
 
 ### Design Patterns
