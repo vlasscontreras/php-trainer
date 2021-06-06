@@ -26,6 +26,14 @@ Instead of defining the entire class path, we can group imports of a namespace i
 php trainer grouped-imports
 ```
 
+#### Anonymous Classes
+
+These classes are not files, but code blocks that define a nameless class just like anonymous functions. Use with caution! Suitable for cases where you want to change things on the fly, tests with mockery, debugging, etc.
+
+```bash
+php trainer anonymous-classes
+```
+
 ### Design Patterns
 
 #### Decorator

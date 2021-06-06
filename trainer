@@ -6,6 +6,7 @@ use Trainer\DesignPatterns\Observer\Observer;
 use Trainer\DesignPatterns\ResponsibilityChain\ResponsibilityChain;
 use Trainer\DesignPatterns\Strategy\Strategy;
 use Trainer\DesignPatterns\TemplateMethod\TemplateMethod;
+use Trainer\General\AnonymousClasses\AnonymousClasses;
 use Trainer\General\GroupedImports\GroupedImports;
 use Trainer\Operators\NullCoalesce;
 use Trainer\Operators\Spaceship;
@@ -26,6 +27,10 @@ switch ($exercise) {
     // General.
     case 'grouped-imports':
         GroupedImports::run();
+        break;
+
+    case 'anonymous-classes':
+        AnonymousClasses::run();
         break;
 
     // Design patterns.
