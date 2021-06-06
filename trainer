@@ -7,6 +7,7 @@ use Trainer\DesignPatterns\ResponsibilityChain\ResponsibilityChain;
 use Trainer\DesignPatterns\Strategy\Strategy;
 use Trainer\DesignPatterns\TemplateMethod\TemplateMethod;
 use Trainer\General\AnonymousClasses\AnonymousClasses;
+use Trainer\General\ConstructorPropertyPromotion\ConstructorPropertyPromotion;
 use Trainer\General\GroupedImports\GroupedImports;
 use Trainer\General\MatchedExpressions\MatchedExpressions;
 use Trainer\Operators\NullCoalesce;
@@ -37,6 +38,10 @@ switch ($exercise) {
 
     case 'matched-expressions':
         MatchedExpressions::run();
+        break;
+
+    case 'constructor-property-promotion':
+        ConstructorPropertyPromotion::run();
         break;
 
     // Design patterns.

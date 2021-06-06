@@ -81,6 +81,28 @@ $matched = match ($value) {
 php trainer anonymous-classes
 ```
 
+#### Constructor Property Promotion (PHP ^8.0)
+
+This feature cleans up the constructor repetition by assigning the proprty visibility onto the constructor parameter. Notice that this still behaves like normal properties when it comes to primitive vs. non-primitive initializations, hence, you can only auto-initialize a property with primitives, not expressions.
+
+```php
+class Person
+{
+    public function __construct(protected string $name)
+    {
+    }
+}
+
+```
+
+**Full example:** `src/General/ConstructorPropertyPromotion/ConstructorPropertyPromotion.php`.
+
+▶️ Run exercise:
+
+```bash
+php trainer constructor-property-promotion
+```
+
 ### Design Patterns
 
 #### Decorator
