@@ -8,7 +8,7 @@
  *
  * Decorators are classes which constructors wrap another objects who
  * are intances of the same interface, and add behavior to have this
- * wrapped object into accuount.
+ * wrapped object into account.
  */
 
 namespace Trainer\DesignPatterns\Decorator;

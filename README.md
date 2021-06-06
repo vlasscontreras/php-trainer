@@ -22,6 +22,18 @@ There are multiple classes and exercises that can be executed.
 
 Instead of defining the entire class path, we can group imports of a namespace into one curly brace group.
 
+```php
+use Trainer\General\GroupedImports\Types\{
+    Person,
+    Animal,
+    Environment\Water,
+};
+```
+
+**Full example:** `src/General/GroupedImports/GroupedImports.php`.
+
+▶️ Run exercise:
+
 ```bash
 php trainer grouped-imports
 ```
@@ -30,6 +42,19 @@ php trainer grouped-imports
 
 These classes are not files, but code blocks that define a nameless class just like anonymous functions. Use with caution! Suitable for cases where you want to change things on the fly, tests with mockery, debugging, etc.
 
+```php
+someFunction(new class extends SomeClass implements SomeInterface  {
+    public function someMethod(): void
+    {
+        //
+    }
+});
+```
+
+**Full example:** `src/General/AnonymousClasses/AnonymousClasses.php`.
+
+▶️ Run exercise:
+
 ```bash
 php trainer anonymous-classes
 ```
@@ -37,6 +62,20 @@ php trainer anonymous-classes
 #### Matched Expressions (PHP ^8.0)
 
 These are expressions that assign the proper value to `$matched` if the given `$value` matches, in an function + array-like syntax. Pretty much like a clean replacement for `switch`.
+
+```php
+$matched = match ($value) {
+    'Conversation'        => 'Started to conversation',
+    'Comment'             => 'Added a new comment',
+    'Reply', 'Subcomment' => 'Replied to conversation',
+    'Attack'              => helperFunction(),
+    default               => 'No action needed',
+};
+```
+
+**Full example:** `src/General/MatchedExpressions/MatchedExpressions.php`.
+
+▶️ Run exercise:
 
 ```bash
 php trainer anonymous-classes
@@ -48,7 +87,16 @@ php trainer anonymous-classes
 
 When a class needs to interact with another class without breaking the OCP, we make use of decorators.
 
-Decorators are classes which constructors wrap another objects who are intances of the same interface, and add behavior to have this wrapped object into accuount.
+Decorators are classes which constructors wrap another objects who are intances of the same interface, and add behavior to have this wrapped object into account.
+
+```php
+$oilChange = new OilChangeDecorator(new BasicInspection());
+$oilChange->getCost();
+```
+
+**Full example:** `src/DesignPatterns/Decorator/Decorator.php`
+
+▶️ Run exercise:
 
 ```bash
 php trainer pattern:decorator
@@ -60,6 +108,19 @@ This pattern is essentially what it sounds like. When an object is not compatibl
 
 Adapters are classes that wrap an object of an incompatible type, and translate the equivalent methods to the implemented class.
 
+```php
+$person = new Person(); // Can read books.
+$book = new Book();
+$eBook = new Kindle();
+
+$person->read($book);
+$person->read(new EReaderAdapter($eBook)); // Adapt eBook to Book.
+```
+
+**Full example:** `src/DesignPatterns/Adapter/Adapter.php`
+
+▶️ Run exercise:
+
 ```bash
 php trainer pattern:adapter
 ```
@@ -67,6 +128,24 @@ php trainer pattern:adapter
 #### Template Method
 
 This pattern is used to illustrate the steps of an algorithm in class methods, but implementations might differ in some steps.
+
+```php
+abstract class Sub
+{
+    public function make()
+    {
+        return $this
+            ->layBread()
+            ->addLettuce()
+            ->addPrimaryToppings()
+            ->addSauces();
+    }
+}
+```
+
+**Full example:** `src/DesignPatterns/TemplateMethod/TemplateMethod.php`
+
+▶️ Run exercise:
 
 ```bash
 php trainer pattern:template-method
@@ -76,6 +155,18 @@ php trainer pattern:template-method
 
 This pattern is used to define a family of algorithms and make them interchangeable.
 
+```php
+$logger = new Logger();
+
+$logger->logMessage('I am a message', new FileLogger());
+$logger->logMessage('I am a message', new DatabaseLogger());
+$logger->logMessage('I am a message', new WebServiceLogger());
+```
+
+**Full example:** `src/DesignPatterns/Strategy/Strategy.php`
+
+▶️ Run exercise:
+
 ```bash
 php trainer pattern:strategy
 ```
@@ -83,6 +174,29 @@ php trainer pattern:strategy
 #### Chain of Responsibility
 
 This pattern is used to connect objects that can either handle or stop the execution of a request. This is done by storing a successor on each object, so in case one of the items in the chain did not result in a stopped exection, can instruct the next item to run its logic.
+
+```php
+$lightsChecker = new LightsChecker();
+$lockChecker = new LockChecker();
+$alarmChecker = new AlarmChecker();
+
+// Connect the chain.
+$lightsChecker->setSuccessor($lockChecker);
+$lockChecker->setSuccessor($alarmChecker);
+
+// Now let's make the check "request".
+$homeStatus = new HomeStatus(
+    false, // lights
+    true, // locked
+    false // alarm
+);
+
+$lightsChecker->check($homeStatus);
+```
+
+**Full example:** `src/DesignPatterns/ResponsibilityChain/ResponsibilityChain.php`
+
+▶️ Run exercise:
 
 ```bash
 php trainer pattern:responsibility-chain
@@ -94,6 +208,25 @@ This pattern is used to observe execution of actions in a class (subject), but t
 
 Pretty much like: Event happens -> Notify listeners.
 
+```php
+// Auth is a subject.
+$auth = new Auth();
+
+// We attach observers to that subject.
+$auth->attach([
+    new LogObserver(),
+    new EmailObserver(),
+    new TraceObserver(),
+]);
+
+// And then we execute the action that notifies the obsevers.
+$auth->notify();
+```
+
+**Full example:** `src/DesignPatterns/Observer/Observer.php`
+
+▶️ Run exercise:
+
 ```bash
 php trainer pattern:observer
 ```
@@ -104,6 +237,14 @@ php trainer pattern:observer
 
 It returns `-1`, `0` or `1` when `$a` is respectively less than, equal to, or greater than `$b`. Comparisons are performed according to PHP's usual type [comparison rules](https://www.php.net/manual/en/types.comparisons.php).
 
+```php
+$a <=> $b;
+```
+
+**Full example:** `src/Operators/Spaceship.php`
+
+▶️ Run exercise:
+
 ```bash
 php trainer operator:spaceship
 ```
@@ -112,6 +253,14 @@ php trainer operator:spaceship
 
 It returns the value of `$a` if it's defined, otherwise it will return the fallback.
 
+```php
+echo $a ?? '❌ Variable not defined.';
+```
+
+**Full example:** `src/Operators/NullCoalesce.php`
+
+▶️ Run exercise:
+
 ```bash
 php trainer operator:null-coalesce
 ```
@@ -119,6 +268,14 @@ php trainer operator:null-coalesce
 #### Nullsafe Operator (PHP ^8.0)
 
 It runs a check if the value is defined in a chain-like syntax making the code cleaner for when a value in a chain might not be defined.
+
+```php
+$personTwo->profile?->title;
+```
+
+**Full example:** `src/Operators/Nullsafe.php`
+
+▶️ Run exercise:
 
 ```bash
 php trainer operator:nullsafe
