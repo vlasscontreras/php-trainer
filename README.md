@@ -34,6 +34,14 @@ These classes are not files, but code blocks that define a nameless class just l
 php trainer anonymous-classes
 ```
 
+#### Matched Expressions (PHP ^8.0)
+
+These are expressions that assign the proper value to `$matched` if the given `$value` matches, in an function + array-like syntax. Pretty much like a clean replacement for `switch`.
+
+```bash
+php trainer anonymous-classes
+```
+
 ### Design Patterns
 
 #### Decorator

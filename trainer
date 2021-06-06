@@ -8,6 +8,7 @@ use Trainer\DesignPatterns\Strategy\Strategy;
 use Trainer\DesignPatterns\TemplateMethod\TemplateMethod;
 use Trainer\General\AnonymousClasses\AnonymousClasses;
 use Trainer\General\GroupedImports\GroupedImports;
+use Trainer\General\MatchedExpressions\MatchedExpressions;
 use Trainer\Operators\NullCoalesce;
 use Trainer\Operators\Nullsafe;
 use Trainer\Operators\Spaceship;
@@ -32,6 +33,10 @@ switch ($exercise) {
 
     case 'anonymous-classes':
         AnonymousClasses::run();
+        break;
+
+    case 'matched-expressions':
+        MatchedExpressions::run();
         break;
 
     // Design patterns.
