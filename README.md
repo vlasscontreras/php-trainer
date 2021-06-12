@@ -319,8 +319,41 @@ class AchievementBadge {
 
 Properties and methods are prepended with `public` in these examples, this is the **visibility**. This means that they are publicly available to anyone accessing them (outside the class or derived classes). But there are 2 other keywords we can use to handle visibility.
 
-- `protected`: Makes the property or method accessible only within the same class or its derived classes (classes that `extend` it).
+- `protected`: Makes the property or method accessible only within the same class or its derived classes (classes that [`extend`](#inheritance) it).
 - `private`: Makes the property or method accessible only within the same class.
+
+#### Inheritance
+
+It allows an object to aquire (or inherit) the traits and behaviors or another object.
+
+```php
+class CoffeeMaker
+{
+    public function brew()
+    {
+        echo 'Brewing coffee.';
+    }
+}
+
+class SpecialtyCoffeeMake extends CoffeeMaker
+{
+    public function brewLatte()
+    {
+        echo 'Brewing latte';
+    }
+}
+
+(new SpecialtyCoffeeMake())->brewLatte();
+(new SpecialtyCoffeeMake())->brew(); // Inherits the ability to brew coffee.
+```
+
+**Full example:** `src/OOP/Inheritance/Inheritance.php`.
+
+▶️ Run exercise:
+
+```bash
+php trainer oop:inheritance
+```
 
 #### Exceptions
 

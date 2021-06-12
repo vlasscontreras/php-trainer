@@ -37,6 +37,7 @@ class Trainer
         \Trainer\Principles\OpenClosed\OpenClosed::class,
         \Trainer\Principles\SingleResponsibility\SingleResponsibility::class,
         \Trainer\OOP\Exceptions\Exceptions::class,
+        \Trainer\OOP\Inheritance\Inheritance::class,
     ];
 
     /**
