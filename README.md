@@ -16,7 +16,57 @@ composer dump-autoload
 
 There are multiple classes and exercises that can be executed.
 
-### General
+### Operators
+
+#### Spaceship Operator (PHP ^7.0)
+
+It returns `-1`, `0` or `1` when `$a` is respectively less than, equal to, or greater than `$b`. Comparisons are performed according to PHP's usual type [comparison rules](https://www.php.net/manual/en/types.comparisons.php).
+
+```php
+$a <=> $b;
+```
+
+**Full example:** `src/Operators/Spaceship.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer operator:spaceship
+```
+
+#### Null Coalesce Operator (PHP ^7.0)
+
+It returns the value of `$a` if it's defined, otherwise it will return the fallback.
+
+```php
+echo $a ?? '❌ Variable not defined.';
+```
+
+**Full example:** `src/Operators/NullCoalesce.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer operator:null-coalesce
+```
+
+#### Nullsafe Operator (PHP ^8.0)
+
+It runs a check if the value is defined in a chain-like syntax making the code cleaner for when a value in a chain might not be defined.
+
+```php
+$personTwo->profile?->title;
+```
+
+**Full example:** `src/Operators/Nullsafe.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer operator:nullsafe
+```
+
+### Features
 
 #### Grouped Imports (PHP ^7.0)
 
@@ -495,54 +545,4 @@ $auth->notify();
 
 ```bash
 php trainer pattern:observer
-```
-
-### Operators
-
-#### Spaceship Operator (PHP ^7.0)
-
-It returns `-1`, `0` or `1` when `$a` is respectively less than, equal to, or greater than `$b`. Comparisons are performed according to PHP's usual type [comparison rules](https://www.php.net/manual/en/types.comparisons.php).
-
-```php
-$a <=> $b;
-```
-
-**Full example:** `src/Operators/Spaceship.php`
-
-▶️ Run exercise:
-
-```bash
-php trainer operator:spaceship
-```
-
-#### Null Coalesce Operator (PHP ^7.0)
-
-It returns the value of `$a` if it's defined, otherwise it will return the fallback.
-
-```php
-echo $a ?? '❌ Variable not defined.';
-```
-
-**Full example:** `src/Operators/NullCoalesce.php`
-
-▶️ Run exercise:
-
-```bash
-php trainer operator:null-coalesce
-```
-
-#### Nullsafe Operator (PHP ^8.0)
-
-It runs a check if the value is defined in a chain-like syntax making the code cleaner for when a value in a chain might not be defined.
-
-```php
-$personTwo->profile?->title;
-```
-
-**Full example:** `src/Operators/Nullsafe.php`
-
-▶️ Run exercise:
-
-```bash
-php trainer operator:nullsafe
 ```
