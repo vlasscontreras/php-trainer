@@ -546,3 +546,35 @@ $auth->notify();
 ```bash
 php trainer pattern:observer
 ```
+
+## Object-Oriented Principles
+
+### Exceptions
+
+These objects are thrown to indicate exceptional behavior. For example, when a business logic happens to fail or reach a sad-path and a simple `false` return is not specific enough. Also, when an action can fail in multiple ways, and each way needs to be handled differently.
+
+The objective is to have a clean and consistent way on handling failed actions. Exceptions bubble to parents (just like JavaScript events) until one of those parents **handles** it.
+
+```php
+function add($a, $b) {
+    if (! (is_numeric($a) || is_numeric($b))) {
+        throw new InvalidArgumentException('The given values must be numeric.');
+    }
+
+    return $a + $b;
+}
+
+try {
+    add(12, []);
+} catch (InvalidArgumentException $e) {
+    // Handle exceptional behavior.
+}
+```
+
+**Full example:** `src/OOP/Exceptions/Exceptions.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer oop:exceptions
+```
