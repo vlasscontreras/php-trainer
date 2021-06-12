@@ -2,7 +2,7 @@
 
 [![Test](https://github.com/vlasscontreras/training-php/actions/workflows/test.yml/badge.svg)](https://github.com/vlasscontreras/training-php/actions/workflows/test.yml)
 
-These are the trainig classes I followed prior to my Zend certification.
+These are the training classes I followed to prepare myself for the Zend certification. I hope you find them as useful as they were (and still are) for me 😃.
 
 ## Installation
 
@@ -14,7 +14,13 @@ composer dump-autoload
 
 ## Usage
 
-There are multiple classes and exercises that can be executed.
+Subjects can be executed through the `trainer` PHP command. Below, each exercise will indicate its signature within the bash command example (if available).
+
+```bash
+php trainer {exercise-signature}
+```
+
+## Subjects
 
 ### Operators
 
@@ -36,7 +42,7 @@ php trainer operator:spaceship
 
 #### Null Coalesce Operator (PHP ^7.0)
 
-It returns the value of `$a` if it's defined, otherwise it will return the fallback.
+It returns the value of `$a` if it's defined, otherwise, it will return the fallback.
 
 ```php
 echo $a ?? '❌ Variable not defined.';
@@ -111,7 +117,7 @@ php trainer anonymous-classes
 
 #### Matched Expressions (PHP ^8.0)
 
-These are expressions that assign the proper value to `$matched` if the given `$value` matches, in an function + array-like syntax. Pretty much like a clean replacement for `switch`.
+These are expressions that assign the proper value to `$matched` if the given `$value` matches, in a function + array-like syntax. Pretty much like a clean replacement for `switch`.
 
 ```php
 $matched = match ($value) {
@@ -133,7 +139,7 @@ php trainer anonymous-classes
 
 #### Constructor Property Promotion (PHP ^8.0)
 
-This feature cleans up the constructor repetition by assigning the proprty visibility onto the constructor parameter. Notice that this still behaves like normal properties when it comes to primitive vs. non-primitive initializations, hence, you can only auto-initialize a property with primitives, not expressions.
+This feature cleans up the constructor repetition by assigning the property visibility onto the constructor parameter. Notice that this still behaves like normal properties when it comes to primitive vs. non-primitive initializations, hence, you can only auto-initialize a property with primitives, not expressions.
 
 ```php
 class Person
@@ -173,7 +179,7 @@ php trainer dynamic-class-access
 
 #### Named Parameters (PHP ^8.0)
 
-A function or class method with parameters, can be invoked with those paramteres in any order (hence, not the order they were in the function definition) as long as they include the name. Notice that this approach couples the function calls to the actual parameter names in the function definition.
+A function or class method with parameters can be invoked with those parameters in any order (hence, not the order they were in the function definition) as long as they include the name. Notice that this approach couples the function calls to the actual parameter names in the function definition.
 
 ```php
 $invoice = new Invoice(
@@ -213,7 +219,7 @@ php trainer string-helpers
 
 #### Weak Maps (PHP ^8.0)
 
-Is map (or dictionary) that accepts objects as keys. Unlike SplObjectStorage, an object in a key of WeakMap does not contribute toward the object's reference count. That is, if at any point the only remaining reference to an object is the key of a WeakMap, the object will be garbage collected and removed from the WeakMap.
+A map (or dictionary) that accepts objects as keys. Unlike SplObjectStorage, an object in a key of WeakMap does not contribute toward the object's reference count. That is, if at any point the only remaining reference to an object is the key of a WeakMap, the object will be garbage collected and removed from the WeakMap.
 
 ```php
 $object = new stdClass();
@@ -234,7 +240,7 @@ php trainer weak-maps
 
 #### Union Types (PHP ^8.0)
 
-When a function/method can handle multiple (but specific) types of arguments, we can type-hint those in the function definition. Notice that this kind of existed in PHP 7 with the `?` before the type token, but it was just an union between the given type and `null`.
+When a function/method can handle multiple (but specific) types of arguments, we can type-hint those in the function definition. Notice that this kind of existed in PHP 7 with the `?` before the type token, but it was just a union between the given type and `null`.
 
 ```php
 function cancel(string | DateTime $when)
@@ -260,7 +266,7 @@ php trainer union-types
 
 #### Mixed Pseudo Type (PHP ^8.0)
 
-In terms of consistency, if you just like to type-hint everything, you can use the `mixed` keyword which its behavior is exactly the same as not putting it. It indicates that the value for the parameter can be of any type.
+In terms of consistency, if you just like to type-hint everything, you can use the `mixed` keyword which its behavior is the same as not putting it. It indicates that the value for the parameter can be of any type.
 
 ```php
 function cancel(mixed $when) // function cancel($when) {}
@@ -277,7 +283,7 @@ cancel(12);
 
 ### SOLID Principles
 
-These are good practices that help the developer write code that is more scalable and maintanble.
+These are good practices that help the developer write code that is more scalable and maintainable.
 
 #### Single Responsibility Principle
 
@@ -352,9 +358,9 @@ php trainer principle:liskov-substitution
 
 #### Interface Segregation
 
-The **I** in **SOLID**. This principle dictates clients should not be forced to implement an interface they don't use. This can be interpreted and implemented thinking on the knowledge each class need from each other.
+The **I** in **SOLID**. This principle dictates clients should not be forced to implement an interface they don't use. This can be interpreted and implemented thinking on the knowledge each class needs from each other.
 
-If a class `TypeA` only needs a little portion of data or behavior of a given object, that's when this principle suggests to segregate the implementation and only ask for an abstraction or interface `InterfaceA`, so any class implementing it, can be used by `TypeA`, since what the `InterfaceA` contract introduces, is all what we need.
+If a class `TypeA` only needs a little portion of data or behavior of a given object, that's when this principle suggests to segregate the implementation and only ask for an abstraction or interface `InterfaceA`, so any class implementing it can be used by `TypeA` since what the `InterfaceA` contract introduces is all that we need.
 
 ```php
 $captain = new Captain();
@@ -376,14 +382,14 @@ php trainer principle:interface-segregation
 
 #### Dependency Inversion
 
-The **D** in **SOLID**. This principle dictates that high-level (isn't concerned about details and specifics) modules should not depend on low-level (it is more concerned about details and specifics) modules. Instead, they should depend on abstractions, not concretions. Low-level module should also depend on abstractions.
+The **D** in **SOLID**. This principle dictates that high-level (isn't concerned about details and specifics) modules should not depend on low-level (it is more concerned about details and specifics) modules. Instead, they should depend on abstractions, not concretions. The low-level module should also depend on abstractions.
 
 ```php
 $databaseConnection = new DatabaseConnection(); // Conforms to ConnectionInterface.
 
 /**
  * The password reminder expects a ConnectionInterface, not the
- * DataBaseConnection concretion, hence depends on an abstraction as
+ * DataBaseConnection concretion hence depends on an abstraction as
  * well, not a concretion.
  */
 $passwordReminder = new PasswordReminder($databaseConnection);
@@ -403,7 +409,7 @@ php trainer principle:dependency-inversion
 
 When a class needs to interact with another class without breaking the OCP, we make use of decorators.
 
-Decorators are classes which constructors wrap another objects who are intances of the same interface, and add behavior to have this wrapped object into account.
+Decorators are classes in which constructors wrap another object who are instances of the same interface and add behavior to have this wrapped object into account.
 
 ```php
 $oilChange = new OilChangeDecorator(new BasicInspection());
@@ -420,9 +426,9 @@ php trainer pattern:decorator
 
 #### Adapter
 
-This pattern is essentially what it sounds like. When an object is not compatible with an implementation but are in the same context, we can use adapters.
+This pattern is essentially what it sounds like. When an object is not compatible with an implementation but is in the same context, we can use adapters.
 
-Adapters are classes that wrap an object of an incompatible type, and translate the equivalent methods to the implemented class.
+Adapters are classes that wrap an object of an incompatible type and translate the equivalent methods to the implemented class.
 
 ```php
 $person = new Person(); // Can read books.
@@ -489,7 +495,7 @@ php trainer pattern:strategy
 
 #### Chain of Responsibility
 
-This pattern is used to connect objects that can either handle or stop the execution of a request. This is done by storing a successor on each object, so in case one of the items in the chain did not result in a stopped exection, can instruct the next item to run its logic.
+This pattern is used to connect objects that can either handle or stop the execution of a request. This is done by storing a successor on each object, so in case one of the items in the chain did not result in a stopped execution, can instruct the next item to run its logic.
 
 ```php
 $lightsChecker = new LightsChecker();
@@ -520,7 +526,7 @@ php trainer pattern:responsibility-chain
 
 #### Observer
 
-This pattern is used to observe execution of actions in a class (subject), but this subject class doesn't need to be aware of anything of those observers. A list observers subscribes (or observes) a subject, and the subject notifies all of them once the triggering action occurs.
+This pattern is used to observe the execution of actions in a class (subject), but this subject class doesn't need to be aware of anything of those observers. A list of observers subscribes (or observes) to a subject, and the subject notifies all of them once the triggering action occurs.
 
 Pretty much like: Event happens -> Notify listeners.
 
@@ -547,13 +553,15 @@ $auth->notify();
 php trainer pattern:observer
 ```
 
-## Object-Oriented Principles
+### Object-Oriented Principles
 
-### Exceptions
+In Object-Oriented Programming (OOP) we make use of classes to represent concepts that exist in an application. These classes might be interpreted as blueprints or templates that define the structure and behavior of these concepts.
 
-These objects are thrown to indicate exceptional behavior. For example, when a business logic happens to fail or reach a sad-path and a simple `false` return is not specific enough. Also, when an action can fail in multiple ways, and each way needs to be handled differently.
+#### Exceptions
 
-The objective is to have a clean and consistent way on handling failed actions. Exceptions bubble to parents (just like JavaScript events) until one of those parents **handles** it.
+These objects are thrown to indicate exceptional behavior. For example, when a business logic happens to fail or reach a sad path and a simple `false` return is not specific enough. Also, when an action can fail in multiple ways, and each way needs to be handled differently.
+
+The objective is to have a clean and consistent way of handling failed actions. Exceptions bubble to parents (just like JavaScript events) until one of those parents **handles** it.
 
 ```php
 function add($a, $b) {
