@@ -317,6 +317,11 @@ class AchievementBadge {
 }
 ```
 
+Properties and methods are prepended with `public` in these examples, this is the **visibility**. This means that they are publicly available to anyone accessing them (outside the class or derived classes). But there are 2 other keywords we can use to handle visibility.
+
+- `protected`: Makes the property or method accessible only within the same class or its derived classes (classes that `extend` it).
+- `private`: Makes the property or method accessible only within the same class.
+
 #### Exceptions
 
 These objects are thrown to indicate exceptional behavior. For example, when a business logic happens to fail or reach a sad path and a simple `false` return is not specific enough. Also, when an action can fail in multiple ways, and each way needs to be handled differently.
