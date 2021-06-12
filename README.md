@@ -281,6 +281,72 @@ cancel(new stdClass());
 cancel(12);
 ```
 
+### Object-Oriented Principles
+
+In Object-Oriented Programming (or OOP) we make use of classes to represent concepts that exist in an application. These classes might be interpreted as blueprints or templates that define the structure and behavior of these concepts.
+
+To create a class, we first find the noun of what it represents. For example a comment, a person, a course, a video, achievement badge, etc. Those are represented like this (using the achievement badge as an example):
+
+```php
+class AchievementBadge {
+}
+```
+
+The pieces of data that make an achievement badge are properties of that concept, and are also called **class properties** in the OOP context.
+
+```php
+class AchievementBadge {
+    public $title;
+    public $description;
+    public $points;
+}
+```
+
+At this point, we may say we have set the structure/blueprint of our concept. Now every time this class is instantiated (or in other words, creating objects of this class), each of those instances will have its own title, description, and points.
+
+In addition, a class can have behavior. Let's say that our achievement badge can be awarded to a person; we can represent that through a class method:
+
+```php
+class AchievementBadge {
+    ...
+
+    public function awardTo($person)
+    {
+        echo "$person has achieved $this->title";
+    }
+}
+```
+
+#### Exceptions
+
+These objects are thrown to indicate exceptional behavior. For example, when a business logic happens to fail or reach a sad path and a simple `false` return is not specific enough. Also, when an action can fail in multiple ways, and each way needs to be handled differently.
+
+The objective is to have a clean and consistent way of handling failed actions. Exceptions bubble to parents (just like JavaScript events) until one of those parents **handles** it.
+
+```php
+function add($a, $b) {
+    if (! (is_numeric($a) || is_numeric($b))) {
+        throw new InvalidArgumentException('The given values must be numeric.');
+    }
+
+    return $a + $b;
+}
+
+try {
+    add(12, []);
+} catch (InvalidArgumentException $e) {
+    // Handle exceptional behavior.
+}
+```
+
+**Full example:** `src/OOP/Exceptions/Exceptions.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer oop:exceptions
+```
+
 ### SOLID Principles
 
 These are good practices that help the developer write code that is more scalable and maintainable.
@@ -551,38 +617,4 @@ $auth->notify();
 
 ```bash
 php trainer pattern:observer
-```
-
-### Object-Oriented Principles
-
-In Object-Oriented Programming (OOP) we make use of classes to represent concepts that exist in an application. These classes might be interpreted as blueprints or templates that define the structure and behavior of these concepts.
-
-#### Exceptions
-
-These objects are thrown to indicate exceptional behavior. For example, when a business logic happens to fail or reach a sad path and a simple `false` return is not specific enough. Also, when an action can fail in multiple ways, and each way needs to be handled differently.
-
-The objective is to have a clean and consistent way of handling failed actions. Exceptions bubble to parents (just like JavaScript events) until one of those parents **handles** it.
-
-```php
-function add($a, $b) {
-    if (! (is_numeric($a) || is_numeric($b))) {
-        throw new InvalidArgumentException('The given values must be numeric.');
-    }
-
-    return $a + $b;
-}
-
-try {
-    add(12, []);
-} catch (InvalidArgumentException $e) {
-    // Handle exceptional behavior.
-}
-```
-
-**Full example:** `src/OOP/Exceptions/Exceptions.php`
-
-▶️ Run exercise:
-
-```bash
-php trainer oop:exceptions
 ```
