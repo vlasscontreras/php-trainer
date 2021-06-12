@@ -355,6 +355,43 @@ class SpecialtyCoffeeMake extends CoffeeMaker
 php trainer oop:inheritance
 ```
 
+#### Abstract Classes
+
+Abstract classes provide templates or base for any subclasses. A class is abstract when the `abstract` keyword is added before the `class` keyword on the class definition. Unlike interfaces, abstract classes can define properties and behavior.
+
+Adding `abstract` to a class:
+
+- Removes the ability to instantiate the class directly
+- It can define abstract methods, which cannot be implemented directly as it needs specifics of the subclass, therefore the subclass must define its behavior
+
+```php
+abstract class AchievementType
+{
+    public string $emoji = '🏆';
+
+    public function getName(): string
+    {
+        return static::class;
+    }
+
+    public function getIconFilename(): string
+    {
+        return $this->getName() . '.png';
+    }
+
+    abstract public function setQualifier(string $user): string;
+}
+
+```
+
+**Full example:** `src/OOP/AbstractClasses/AbstractClasses.php`.
+
+▶️ Run exercise:
+
+```bash
+php trainer oop:abstract-classes
+```
+
 #### Exceptions
 
 These objects are thrown to indicate exceptional behavior. For example, when a business logic happens to fail or reach a sad path and a simple `false` return is not specific enough. Also, when an action can fail in multiple ways, and each way needs to be handled differently.

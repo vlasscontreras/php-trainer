@@ -38,6 +38,7 @@ class Trainer
         \Trainer\Principles\SingleResponsibility\SingleResponsibility::class,
         \Trainer\OOP\Exceptions\Exceptions::class,
         \Trainer\OOP\Inheritance\Inheritance::class,
+        \Trainer\OOP\AbstractClasses\AbstractClasses::class,
     ];
 
     /**
