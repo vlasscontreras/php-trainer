@@ -357,7 +357,7 @@ php trainer oop:inheritance
 
 #### Abstract Classes
 
-Abstract classes provide templates or base for any subclasses. A class is abstract when the `abstract` keyword is added before the `class` keyword on the class definition. Unlike interfaces, abstract classes can define properties and behavior.
+Abstract classes provide templates or base for any subclasses. A class is abstract when the `abstract` keyword is added before the `class` keyword on the class definition. Unlike [interfaces](#interfaces), abstract classes can define properties and behavior.
 
 Adding `abstract` to a class:
 
@@ -381,7 +381,6 @@ abstract class AchievementType
 
     abstract public function setQualifier(string $user): string;
 }
-
 ```
 
 **Full example:** `src/OOP/AbstractClasses/AbstractClasses.php`.
@@ -390,6 +389,51 @@ abstract class AchievementType
 
 ```bash
 php trainer oop:abstract-classes
+```
+
+#### Interfaces
+
+Interfaces are classes without behavior, they only have method signatures. They describe the terms for a particular contract, and any class that signs this contract, must adhere to those terms. In other words, interfaces don't care about the specifics of the behavior, just that the subclasses define that behavior.
+
+This reduces the chances of errors due to duck typing and handshakes (accepting any type as dependency _hoping_ that it has a certain method).
+
+```php
+interface NewsletterProvider
+{
+    public function subscribe(string $email): bool;
+}
+
+class SendGridNewsletterProvider implements NewsletterProvider
+{
+    public function subscribe(string $email): bool
+    {
+        // SendGrid logic.
+    }
+}
+
+class CampaignMonitorNewsletterProvider implements NewsletterProvider
+{
+    public function subscribe(string $email): bool
+    {
+        // Campaign Monitor logic.
+    }
+}
+
+class NewsletterController
+{
+    public function store(NewsletterProvider $provider, string $email) // We can use any class implementing NewsletterProvider
+    {
+        $provider->subscribe($email); // We know by contract it has this method.
+    }
+}
+```
+
+**Full example:** `src/OOP/Interfaces/Interfaces.php`.
+
+▶️ Run exercise:
+
+```bash
+php trainer oop:interfaces
 ```
 
 #### Exceptions

@@ -39,6 +39,7 @@ class Trainer
         \Trainer\OOP\Exceptions\Exceptions::class,
         \Trainer\OOP\Inheritance\Inheritance::class,
         \Trainer\OOP\AbstractClasses\AbstractClasses::class,
+        \Trainer\OOP\Interfaces\Interfaces::class,
     ];
 
     /**
