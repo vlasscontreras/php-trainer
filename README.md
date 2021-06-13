@@ -445,6 +445,77 @@ class NewsletterController
 php trainer oop:interfaces
 ```
 
+#### Value Objects and Mutability
+
+A value object is an object whose equality is determined by its data (or value) rather than any particular identity.
+
+To illustrate this, imagine three five dollar bills resting on a table. Does one bill have a unique identity compared to the other two? From our perspective, no. Five dollars is five dollars regardless of which bill you choose. However, compare this with two human beings who have the same first and last name. Are they identical, or does each person have a unique identity? Of course in this case, the latter is the correct answer.
+
+```php
+class Person
+{
+    protected string $firstName;
+    protected string $lastName;
+
+    public function __construct(string $firstName, string $lastName)
+    {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+    }
+}
+
+$personOne = new Person('John', 'Doe');
+$personTwo = new Person('John', 'Doe');
+```
+
+The name attributes are often shared across a system, because you might instantiate different `Person` objects and they have the same properties and might even have the same values, but are different objects.
+
+Mutability (ability to change the internal state of an object) often opens the posibility to bypass any processes at the moment of setting the attribute of an object (like validation, events, etc.).
+
+**Mutable:**
+
+```php
+class Age
+{
+    public int $value;
+
+    public function __construct(int $value)
+    {
+        if ($value < 0 || $value > 120) {
+            throw new InvalidArgumentException('Invalid age');
+        }
+
+        $this->value = $value;
+    }
+}
+
+$age = new Age(300); // Exception: Invalid age.
+$age = new Age(43); // Valid age.
+$age->value = 300; // Invalid age, yet the object has it assigned, validation bypassed.
+```
+
+**Immutable:**
+
+```php
+class Age
+{
+    protected int $value;
+
+    public function __construct(int $value)
+    {
+        if ($value < 0 || $value > 120) {
+            throw new InvalidArgumentException('Invalid age');
+        }
+
+        $this->value = $value;
+    }
+}
+
+$age = new Age(300); // Exception: Invalid age.
+$age = new Age(43); // Valid age.
+$age->value = 300; // Fatal error, access to protected property, unable to change the internal state.
+```
+
 #### Exceptions
 
 These objects are thrown to indicate exceptional behavior. For example, when a business logic happens to fail or reach a sad path and a simple `false` return is not specific enough. Also, when an action can fail in multiple ways, and each way needs to be handled differently.
