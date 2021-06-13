@@ -516,6 +516,15 @@ $age = new Age(43); // Valid age.
 $age->value = 300; // Fatal error, access to protected property, unable to change the internal state.
 ```
 
+**Benefits:**
+
+- Avoids primitive obsession
+- Helps with readability
+- Helps with consistency (validations, formatting, etc.)
+- By avoiding setters, we provide mutability (which tends to reduce bugs due to internal state changes)
+
+**Note:** Be careful, do not map every primitive to a value object since it might unnecessary and increase complexity on maintainability.
+
 #### Exceptions
 
 These objects are thrown to indicate exceptional behavior. For example, when a business logic happens to fail or reach a sad path and a simple `false` return is not specific enough. Also, when an action can fail in multiple ways, and each way needs to be handled differently.
