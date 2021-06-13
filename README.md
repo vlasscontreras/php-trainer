@@ -437,6 +437,8 @@ class NewsletterController
 
 **Full example:** `src/OOP/Interfaces/Interfaces.php`.
 
+**Important:** In the controller class of the full example, we implement a concept called **Object Composition**. Make sure you take a look to the constructor of that class to get more details 😉.
+
 ▶️ Run exercise:
 
 ```bash
