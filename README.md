@@ -321,7 +321,7 @@ class AchievementBadge {
 
 In these examples, properties and methods are prepended with the `public` keyword, this is the **visibility**, and `public` is the default (yet it is recommended to define it explicitly like in these examples). This is how you determine encapsulation.
 
-Encapsulation allows a class to provide signals to the outside world that certain internals are private and shouldn't be accessed. So at it's core, encapsulation is about communication.
+Encapsulation allows a class to provide signals to the outside world that certain internals are private and shouldn't be accessed. So at its core, encapsulation is about communication.
 
 But what it means?
 
@@ -331,7 +331,7 @@ But what it means?
 
 #### Inheritance
 
-It allows an object to aquire (or inherit) the traits and behaviors or another object.
+It allows an object to acquire (or inherit) the traits and behaviors of another object.
 
 ```php
 class CoffeeMaker
@@ -400,7 +400,7 @@ php trainer oop:abstract-classes
 
 #### Interfaces
 
-Interfaces are classes without behavior, they only have method signatures. They describe the terms for a particular contract, and any class that signs this contract, must adhere to those terms. In other words, interfaces don't care about the specifics of the behavior, just that the subclasses define that behavior.
+Interfaces are classes without behavior, they only have method signatures. They describe the terms for a particular contract, and any class that signs this contract must adhere to those terms. In other words, interfaces don't care about the specifics of the behavior, just that the subclasses define that behavior.
 
 This reduces the chances of errors due to duck typing and handshakes (accepting any type as dependency _hoping_ that it has a certain method).
 
@@ -449,7 +449,7 @@ php trainer oop:interfaces
 
 A value object is an object whose equality is determined by its data (or value) rather than any particular identity.
 
-To illustrate this, imagine three five dollar bills resting on a table. Does one bill have a unique identity compared to the other two? From our perspective, no. Five dollars is five dollars regardless of which bill you choose. However, compare this with two human beings who have the same first and last name. Are they identical, or does each person have a unique identity? Of course in this case, the latter is the correct answer.
+To illustrate this, imagine three five-dollar bills resting on a table. Does one bill have a unique identity compared to the other two? From our perspective, no. Five dollars is five dollars regardless of which bill you choose. However, compare this with two human beings who have the same first and last name. Are they identical, or does each person have a unique identity? Of course, in this case, the latter is the correct answer.
 
 ```php
 class Person
@@ -468,9 +468,9 @@ $personOne = new Person('John', 'Doe');
 $personTwo = new Person('John', 'Doe');
 ```
 
-The name attributes are often shared across a system, because you might instantiate different `Person` objects and they have the same properties and might even have the same values, but are different objects.
+The name attributes are often shared across a system because you might instantiate different `Person` objects and they have the same properties and might even have the same values, but are different objects.
 
-Mutability (ability to change the internal state of an object) often opens the posibility to bypass any processes at the moment of setting the attribute of an object (like validation, events, etc.).
+Mutability (ability to change the internal state of an object) often opens the possibility to bypass any processes at the moment of setting the attribute of an object (like validation, events, etc.).
 
 **Mutable:**
 
