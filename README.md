@@ -317,9 +317,16 @@ class AchievementBadge {
 }
 ```
 
-Properties and methods are prepended with `public` in these examples, this is the **visibility**. This means that they are publicly available to anyone accessing them (outside the class or derived classes). But there are 2 other keywords we can use to handle visibility.
+#### Ecapsulation
 
-- `protected`: Makes the property or method accessible only within the same class or its derived classes (classes that [`extend`](#inheritance) it).
+In these examples, properties and methods are prepended with the `public` keyword, this is the **visibility**, and `public` is the default (yet it is recommended to define it explicitly like in these examples). This is how you determine encapsulation.
+
+Encapsulation allows a class to provide signals to the outside world that certain internals are private and shouldn't be accessed. So at it's core, encapsulation is about communication.
+
+But what it means?
+
+- `public`: Makes the property or method publicly available to anyone accessing them, inside the same class, outside the class, or derived classes (classes that [`extend`](#inheritance) it).
+- `protected`: Makes the property or method accessible only within the same class or its derived classes.
 - `private`: Makes the property or method accessible only within the same class.
 
 #### Inheritance
