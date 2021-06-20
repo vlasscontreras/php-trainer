@@ -46,7 +46,44 @@ The `$_SERVER` superglobal contains a lot of keys, and it is important to get fa
 php trainer superglobals
 ```
 
-### Magic Constants
+### Constants
+
+Constants are similar to variables but are **immutable**. They have the same naming rules as variables, but by convention will have uppercase names.
+
+```php
+define(name: 'PI', value: 3.142, case_insensitive: false);
+defined('PI'); // true
+echo PI; // 3.142
+```
+
+**Note:** Constants can only contain arrays or scalar values and not resources or objects.
+
+Only the `const` keyword can be used to create a namespaced constant.
+
+```php
+// Math.php
+namespace Math;
+const PI = 3.142;
+define('EPSILON', 0.001);
+```
+
+```php
+// Test.php
+namespace Test;
+echo \Math\PI; // 3.142
+echo \Math\EPSILON; // Fatal error!
+echo EPSILON; // 0.001
+```
+
+**Note:** Assume `Math.php` is loaded when `Lang.php` is executed.
+
+▶️ Run exercise:
+
+```bash
+php trainer constants:namespaced
+```
+
+#### Magic Constants
 
 There are nine magical constants that change depending on where they are used. For example, the value of `__LINE__` depends on the line that it's used on in the script. All these "magical" constants are resolved at compile time, unlike regular constants, which are resolved at runtime. These special constants are case-insensitive and are as follows:
 
@@ -64,7 +101,7 @@ There are nine magical constants that change depending on where they are used. F
 ▶️ Run exercise:
 
 ```bash
-php trainer magic-constants
+php trainer constants:magic-constants
 ```
 
 #### Predefined Constants

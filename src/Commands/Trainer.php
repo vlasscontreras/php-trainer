@@ -13,6 +13,8 @@ class Trainer
      * @var string[]
      */
     protected $executables = [
+        \Trainer\Constants\MagicConstants\MagicConstants::class,
+        \Trainer\Constants\Namespaced\Namespaced::class,
         \Trainer\DesignPatterns\Adapter\Adapter::class,
         \Trainer\DesignPatterns\Decorator\Decorator::class,
         \Trainer\DesignPatterns\Observer\Observer::class,
@@ -28,7 +30,6 @@ class Trainer
         \Trainer\General\StringHelpers\StringHelpers::class,
         \Trainer\General\UnionTypes\UnionTypes::class,
         \Trainer\General\WeakMaps\WeakMaps::class,
-        \Trainer\MagicConstants\MagicConstants::class,
         \Trainer\OOP\AbstractClasses\AbstractClasses::class,
         \Trainer\OOP\Exceptions\Exceptions::class,
         \Trainer\OOP\Inheritance\Inheritance::class,

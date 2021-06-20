@@ -1,6 +1,6 @@
 <?php
 
-namespace Trainer\MagicConstants;
+namespace Trainer\Constants\MagicConstants;
 
 use Console_Table;
 use Trainer\Executable;
@@ -10,7 +10,7 @@ class MagicConstants extends Executable
     /**
      * @inheritdoc
      */
-    public const SIGNATURE = 'magic-constants';
+    public const SIGNATURE = 'constants:magic';
 
     /**
      * @inheritdoc
