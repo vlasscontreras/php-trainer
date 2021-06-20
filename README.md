@@ -72,6 +72,38 @@ $personTwo->profile?->title;
 php trainer operator:nullsafe
 ```
 
+### Casting Types
+
+#### Boolean
+
+PHP casts values to boolean `false` if they are:
+
+- Integers (`int`) (also `float`) of value `0` (zero)
+    - Which means negative values cast to `true`
+- Strings (`string`) with empty value `''` or with value `'0'` (zero)
+- Arrays (`array`) with no elements
+- Null (`null`) variables
+
+#### String to Numbers
+
+When casting strings to numeric types (such as `int` or `float`), PHP will default to `0` (zero) if the string does not start with a numeric value. If it does start with a numeric value, but then has a non-numeric value and later another (set of) numeric value(s), these will be ignored.
+
+```php
+echo (int) '12 o clock'; // 12
+echo (int) 'Half past 12'; // 0
+echo (int) '12.30'; // 12.3
+echo (int) '7.2e2 minutes after midnight'; // 720
+```
+
+#### Floats to Integers
+
+Casting floating point values to integers truncates the value; no calculation occurs:
+
+```php
+echo (int) 1234.99; // 1234
+echo (int) -1234.99; // -1234
+```
+
 ### Features
 
 #### Grouped Imports (PHP ^7.0)
