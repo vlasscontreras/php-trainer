@@ -313,6 +313,30 @@ cancel(new stdClass());
 cancel(12);
 ```
 
+#### Superglobals
+
+Superglobals are variables that are available automatically to the script, with no need of `global` keyword usage. Superglobals are available in every scope.
+
+| Suberglobal | Stores |
+| ----------- | ------ |
+| `$GLOBALS`  | An array of variables that exist in the global scope. |
+| `$_SERVER`  | An array of information about paths, headers, and other information relevant to the server environment. |
+| `$_GET`     | Variables sent in a GET request. |
+| `$_POST`    | Variables sent in a POST request. |
+| `$_FILES`   | An associative array of files that were uploaded as part of a POST request. |
+| `$_COOKIE`  | An associative array of variables passed to the current script via HTTP cookies. |
+| `$_SESSION` | An associative array containing session variables available to the current script. |
+| `$_REQUEST` | POST, GET, and COOKIE request variables. |
+| `$_ENV`     | An associative array of variables passed to the current script via the environment method. |
+
+The `$_SERVER` superglobal contains a lot of keys, and it is important to get familiar with its values.
+
+▶️ Run exercise:
+
+```bash
+php trainer superglobals
+```
+
 ### Object-Oriented Principles
 
 In Object-Oriented Programming (or OOP) we make use of classes to represent concepts that exist in an application. These classes might be interpreted as blueprints or templates that define the structure and behavior of these concepts.

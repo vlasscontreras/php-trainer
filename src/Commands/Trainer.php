@@ -40,6 +40,7 @@ class Trainer
         \Trainer\OOP\Inheritance\Inheritance::class,
         \Trainer\OOP\AbstractClasses\AbstractClasses::class,
         \Trainer\OOP\Interfaces\Interfaces::class,
+        \Trainer\Superglobals\Superglobals::class,
     ];
 
     /**
