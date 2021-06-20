@@ -4,8 +4,68 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf55345281ff5141b189120b028d0fe8",
-    "packages": [],
+    "content-hash": "da6de52e770ab68309d9c2055c43d9fd",
+    "packages": [
+        {
+            "name": "pear/console_table",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Console_Table.git",
+                "reference": "1930c11897ca61fd24b95f2f785e99e0f36dcdea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Console_Table/zipball/1930c11897ca61fd24b95f2f785e99e0f36dcdea",
+                "reference": "1930c11897ca61fd24b95f2f785e99e0f36dcdea",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "suggest": {
+                "pear/Console_Color2": ">=0.1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Table.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Schneider",
+                    "homepage": "http://pear.php.net/user/yunosh"
+                },
+                {
+                    "name": "Tal Peer",
+                    "homepage": "http://pear.php.net/user/tal"
+                },
+                {
+                    "name": "Xavier Noguer",
+                    "homepage": "http://pear.php.net/user/xnoguer"
+                },
+                {
+                    "name": "Richard Heyes",
+                    "homepage": "http://pear.php.net/user/richard"
+                }
+            ],
+            "description": "Library that makes it easy to build console style tables.",
+            "homepage": "http://pear.php.net/package/Console_Table/",
+            "keywords": [
+                "console"
+            ],
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Console_Table",
+                "source": "https://github.com/pear/Console_Table"
+            },
+            "time": "2018-01-25T20:47:17+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
@@ -262,5 +322,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

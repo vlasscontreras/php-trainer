@@ -1,6 +1,7 @@
 {
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "pear/console_table": "^1.3"
     },
     "autoload": {
         "psr-4": {"Trainer\\": "src/"}
