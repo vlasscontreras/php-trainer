@@ -67,6 +67,72 @@ There are nine magical constants that change depending on where they are used. F
 php trainer magic-constants
 ```
 
+#### Predefined Constants
+
+These constants are defined by the PHP core. This includes PHP, the Zend engine, and SAPI modules.
+
+| Constant | Type | Content |
+| -------- | ---- | ------- |
+| `PHP_VERSION`              | `string` | The current PHP version as a string in "major.minor.release[extra]" notation. |
+| `PHP_MAJOR_VERSION`        | `int`    | The current PHP "major" version as an integer (e.g., `int(8)` from version `8.0.7-extra`). |
+| `PHP_MINOR_VERSION`        | `int`    | The current PHP "minor" version as an integer (e.g., `int(0)` from version `8.0.7-extra`). |
+| `PHP_RELEASE_VERSION`      | `int`    | The current PHP "release" version as an integer (e.g., `int(7)` from version `8.0.7-extra`). |
+| `PHP_VERSION_ID`           | `int`    | The current PHP version as an integer, useful for version comparisons (e.g., `int(80007)` from version `8.0.7-extra`).
+| `PHP_EXTRA_VERSION`        | `string` | The current PHP "extra" version as a string (e.g., '-extra' from version `8.0.7-extra`). Often used by distribution vendors to indicate a package version. |
+| `PHP_ZTS`                  | `int`    | N/A |
+| `PHP_DEBUG`                | `int`    | N/A |
+| `PHP_MAXPATHLEN`           | `int`    | The maximum length of filenames (including path) supported by this build of PHP. |
+| `PHP_OS`                   | `string` | The operating system PHP was built for. |
+| `PHP_OS_FAMILY`            | `string` | The operating system family PHP was built for. One of `Windows`, `BSD`, `Darwin`, `Solaris`, `Linux` or `Unknown`. Available `. |
+| `PHP_SAPI`                 | `string` | The Server API for this build of PHP. See also `php_sapi_name()`. |
+| `PHP_EOL`                  | `string` | The correct 'End Of Line' symbol for this platform. |
+| `PHP_INT_MAX`              | `int`    | The largest integer supported in this build of PHP. Usually `int(2147483647)` in 32 bit systems and `int(9223372036854775807)` in 64 bit systems. |
+| `PHP_INT_MIN`              | `int`    | The smallest integer supported in this build of PHP. Usually `int(-2147483648)` in 32 bit systems and `int(-9223372036854775808)` in 64 bit systems. Usually, PHP_INT_MIN === ~PHP_INT_MAX. |
+| `PHP_INT_SIZE`             | `int`    | The size of an integer in bytes in this build of PHP. |
+| `PHP_FLOAT_DIG`            | `int`    | Number of decimal digits that can be rounded into a float and back without precision loss. Available `. |
+| `PHP_FLOAT_EPSILON`        | `float`  | Smallest representable positive number `x`, so that `x + 1.0` != `1.0`. Available `. |
+| `PHP_FLOAT_MIN`            | `float`  | Smallest representable positive floating point number. If you need the smallest representable negative floating point number, use `PHP_FLOAT_MAX`. Available `.
+| `PHP_FLOAT_MAX`            | `float`  | Largest representable floating point number. Available `. |
+| `DEFAULT_INCLUDE_PATH`     | `string` | N/A |
+| `PEAR_INSTALL_DIR`         | `string` | N/A |
+| `PEAR_EXTENSION_DIR`       | `string` | N/A |
+| `PHP_EXTENSION_DIR`        | `string` | The default directory where to look for dynamically loadable extensions (unless overridden by `extension_dir`). Defaults to `PHP_PREFIX` (or `PHP_PREFIX . "\\ext"` on Windows). |
+| `PHP_PREFIX`               | `string` | The value `--prefix` was set to at configure. On Windows, it is the value `--with-prefix` was set to at configure. |
+| `PHP_BINDIR`               | `string` | The value `--bindir` was set to at configure. On Windows, it is the value `--with-prefix` was set to at configure. |
+| `PHP_BINARY`               | `string` | Specifies the PHP binary path during script execution. |
+| `PHP_MANDIR`               | `string` | Specifies where the manpages were installed into. |
+| `PHP_LIBDIR`               | `string` | N/A |
+| `PHP_DATADIR`              | `string` | N/A |
+| `PHP_SYSCONFDIR`           | `string` | N/A |
+| `PHP_LOCALSTATEDIR`        | `string` | N/A |
+| `PHP_CONFIG_FILE_PATH`     | `string` | N/A |
+| `PHP_CONFIG_FILE_SCAN_DIR` | `string` | N/A |
+| `PHP_SHLIB_SUFFIX`         | `string` | The build-platform's shared library suffix, such as "so" (most Unixes) or "dll" (Windows). |
+| `PHP_FD_SETSIZE`           | `string` | The maximum number of file descriptors for select system calls. Available `. |
+
+#### Error Reporting Constants
+
+| Constant | Type | Description | Value |
+| -------- | ---- | ----------- | ----- |
+| `E_ERROR`             | `int` | Fatal run-time errors. These indicate errors that can not be recovered from, such as a memory allocation problem. Execution of the script is halted. | `1`     |
+| `E_WARNING`           | `int` | Run-time warnings (non-fatal errors). Execution of the script is not halted. | `2`     |
+| `E_PARSE`             | `int` | Compile-time parse errors. Parse errors should only be generated by the parser. | `4`     |
+| `E_NOTICE`            | `int` | Run-time notices. Indicate that the script encountered something that could indicate an error, but could also happen in the normal course of running a script. | `8`     |
+| `E_CORE_ERROR`        | `int` | Fatal errors that occur during PHP's initial startup. This is like an E_ERROR, except it is generated by the core of PHP. | `16`    |
+| `E_CORE_WARNING`      | `int` | Warnings (non-fatal errors) that occur during PHP's initial startup. This is like an E_WARNING, except it is generated by the core of PHP. | `32`    |
+| `E_COMPILE_ERROR`     | `int` | Fatal compile-time errors. This is like an E_ERROR, except it is generated by the Zend Scripting Engine. | `64`    |
+| `E_COMPILE_WARNING`   | `int` | Compile-time warnings (non-fatal errors). This is like an E_WARNING, except it is generated by the Zend Scripting Engine. | `128`   |
+| `E_USER_ERROR`        | `int` | User-generated error message. This is like an E_ERROR, except it is generated in PHP code by using the PHP function `trigger_error()`. | `256`   |
+| `E_USER_WARNING`      | `int` | User-generated warning message. This is like an E_WARNING, except it is generated in PHP code by using the PHP function `trigger_error()`. | `512`   |
+| `E_USER_NOTICE`       | `int` | User-generated notice message. This is like an E_NOTICE, except it is generated in PHP code by using the PHP function `trigger_error()`. | `1024`  |
+| `E_STRICT`            | `int` | Enable to have PHP suggest changes to your code which will ensure the best interoperability and forward compatibility of your code. | `2048`  |
+| `E_RECOVERABLE_ERROR` | `int` | Catchable fatal error. It indicates that a probably dangerous error occurred, but did not leave the Engine in an unstable state. If the error is not caught by a user defined handle (see also `set_error_handler()`), the application aborts as it was an `E_ERROR`.	| `4096`  |
+| `E_DEPRECATED`        | `int` | Run-time notices. Enable this to receive warnings about code that will not work in future versions. | `8192`  |
+| `E_USER_DEPRECATED`   | `int` | User-generated warning message. This is like an E_DEPRECATED, except it is generated in PHP code by using the PHP function `trigger_error()`. | `16384` |
+| `E_ALL`               | `int` | All errors and warnings, as supported. | `32767` |
+
+The above values (either numerical or symbolic) are used to build up a bitmask that specifies which errors to report. You can use the bitwise operators to combine these values or mask out certain types of errors. Note that only `|`, `~`, `!`, `^` and `&` will be understood within `php.ini`. See also [`error-reporting()`](https://www.php.net/manual/en/function.error-reporting.php).
+
 ### Operators
 
 #### Spaceship Operator (PHP ^7.0)
