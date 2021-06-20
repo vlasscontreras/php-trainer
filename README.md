@@ -22,6 +22,51 @@ php trainer {exercise-signature}
 
 ## Subjects
 
+### Superglobals
+
+Superglobals are variables that are available automatically to the script, with no need of `global` keyword usage. Superglobals are available in every scope.
+
+| Suberglobal | Content |
+| ----------- | ------- |
+| `$GLOBALS`  | An array of variables that exist in the global scope. |
+| `$_SERVER`  | An array of information about paths, headers, and other information relevant to the server environment. |
+| `$_GET`     | Variables sent in a GET request. |
+| `$_POST`    | Variables sent in a POST request. |
+| `$_FILES`   | An associative array of files that were uploaded as part of a POST request. |
+| `$_COOKIE`  | An associative array of variables passed to the current script via HTTP cookies. |
+| `$_SESSION` | An associative array containing session variables available to the current script. |
+| `$_REQUEST` | POST, GET, and COOKIE request variables. |
+| `$_ENV`     | An associative array of variables passed to the current script via the environment method. |
+
+The `$_SERVER` superglobal contains a lot of keys, and it is important to get familiar with its values.
+
+▶️ Run exercise:
+
+```bash
+php trainer superglobals
+```
+
+### Magic Constants
+
+There are nine magical constants that change depending on where they are used. For example, the value of `__LINE__` depends on the line that it's used on in the script. All these "magical" constants are resolved at compile time, unlike regular constants, which are resolved at runtime. These special constants are case-insensitive and are as follows:
+
+| Constant | Content |
+| -------- | ------- |
+| `__LINE__`      | The current line number of the PHP script being executed |
+| `__DIR__`       | The directory of the file. If used inside an include, the directory of the included file is returned. This is equivalent to dirname(__FILE__). This directory name does not have a trailing slash unless it is the root directory |
+| `__FILE__`      | The fully resolved (including symlinks) name and path of the file being executed |
+| `__CLASS__`     | The name of the class being executed |
+| `__METHOD__`    | The name of the class method being executed |
+| `__FUNCTION__`  | The name of the function being executed |
+| `__TRAIT__`     | The namespace and name of the trait that the code is running in |
+| `__NAMESPACE__` | The current namespace |
+
+▶️ Run exercise:
+
+```bash
+php trainer magic-constants
+```
+
 ### Operators
 
 #### Spaceship Operator (PHP ^7.0)
@@ -311,30 +356,6 @@ cancel('next week');
 cancel(new DateTime());
 cancel(new stdClass());
 cancel(12);
-```
-
-#### Superglobals
-
-Superglobals are variables that are available automatically to the script, with no need of `global` keyword usage. Superglobals are available in every scope.
-
-| Suberglobal | Stores |
-| ----------- | ------ |
-| `$GLOBALS`  | An array of variables that exist in the global scope. |
-| `$_SERVER`  | An array of information about paths, headers, and other information relevant to the server environment. |
-| `$_GET`     | Variables sent in a GET request. |
-| `$_POST`    | Variables sent in a POST request. |
-| `$_FILES`   | An associative array of files that were uploaded as part of a POST request. |
-| `$_COOKIE`  | An associative array of variables passed to the current script via HTTP cookies. |
-| `$_SESSION` | An associative array containing session variables available to the current script. |
-| `$_REQUEST` | POST, GET, and COOKIE request variables. |
-| `$_ENV`     | An associative array of variables passed to the current script via the environment method. |
-
-The `$_SERVER` superglobal contains a lot of keys, and it is important to get familiar with its values.
-
-▶️ Run exercise:
-
-```bash
-php trainer superglobals
 ```
 
 ### Object-Oriented Principles

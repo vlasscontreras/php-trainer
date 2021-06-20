@@ -28,6 +28,11 @@ class Trainer
         \Trainer\General\StringHelpers\StringHelpers::class,
         \Trainer\General\UnionTypes\UnionTypes::class,
         \Trainer\General\WeakMaps\WeakMaps::class,
+        \Trainer\MagicConstants\MagicConstants::class,
+        \Trainer\OOP\AbstractClasses\AbstractClasses::class,
+        \Trainer\OOP\Exceptions\Exceptions::class,
+        \Trainer\OOP\Inheritance\Inheritance::class,
+        \Trainer\OOP\Interfaces\Interfaces::class,
         \Trainer\Operators\NullCoalesce::class,
         \Trainer\Operators\Nullsafe::class,
         \Trainer\Operators\Spaceship::class,
@@ -36,10 +41,6 @@ class Trainer
         \Trainer\Principles\LiskovSubstitution\LiskovSubstitution::class,
         \Trainer\Principles\OpenClosed\OpenClosed::class,
         \Trainer\Principles\SingleResponsibility\SingleResponsibility::class,
-        \Trainer\OOP\Exceptions\Exceptions::class,
-        \Trainer\OOP\Inheritance\Inheritance::class,
-        \Trainer\OOP\AbstractClasses\AbstractClasses::class,
-        \Trainer\OOP\Interfaces\Interfaces::class,
         \Trainer\Superglobals\Superglobals::class,
     ];
 
