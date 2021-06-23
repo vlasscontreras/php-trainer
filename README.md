@@ -172,6 +172,38 @@ The above values (either numerical or symbolic) are used to build up a bitmask t
 
 ### Operators
 
+#### Logic Operators
+
+PHP uses both symbol-based and word-based logic operators. The symbol-based operators are C-based.
+
+| Operator | Example     | True When |
+| -------- | -----------  | --------- |
+| `and`    | `$a and $b`  | Both `$a` and `$b` evaluate `true`  |
+| `and`    | `$a && $b`   | Both `$a` and `$b` evaluate `true`  |
+| `or`     | `$a or $b`   | Either `$a` or `$b` evaluate `true` |
+| `or`     | `$a \|\| $b` | Either `$a` or `$b` evaluate `true` |
+| `xor`    | `$a xor $b`  | One of (but not both) `$a` or `$b` is `true` |
+| `xor`    | `$a ^ $b`    | One of (but not both) `$a` or `$b` is `true` |
+| `not`    | `!$a`        | `$a` is not `true` (`false`) |
+
+It is better (a good practice actually) not to mix both forms (symbol/word-based) in the same comparison. Even though both serve the same purpose, they have different [precedence](https://www.php.net/manual/en/language.operators.precedence.php). For that reason is safer to **use the symbol-based form only**.
+
+```php
+$a = true;
+$b = false;
+$word = $a and $b; // true
+$symbol = $a && $b; // false
+assert($word === $symbol);
+```
+
+The above is due to `and` and `or` have lower precedence than `=`. Ouch 🤕.
+
+▶️ Run exercise:
+
+```bash
+php trainer operator:logic-precedence
+```
+
 #### Spaceship Operator (PHP ^7.0)
 
 It returns `-1`, `0` or `1` when `$a` is respectively less than, equal to, or greater than `$b`. Comparisons are performed according to PHP's usual type [comparison rules](https://www.php.net/manual/en/types.comparisons.php).

@@ -34,6 +34,7 @@ class Trainer
         \Trainer\OOP\Exceptions\Exceptions::class,
         \Trainer\OOP\Inheritance\Inheritance::class,
         \Trainer\OOP\Interfaces\Interfaces::class,
+        \Trainer\Operators\Logic::class,
         \Trainer\Operators\NullCoalesce::class,
         \Trainer\Operators\Nullsafe::class,
         \Trainer\Operators\Spaceship::class,
