@@ -204,6 +204,187 @@ The above is due to `and` and `or` have lower precedence than `=`. Ouch 🤕.
 php trainer operator:logic-precedence
 ```
 
+#### Bitwise Operators
+
+Bitwise operators work on the bits of integers represented in binary form. Every integer has its representation in binary, for example:
+
+| Decimal | Binary   |
+| ------- | -------- |
+| `0`     | `0`      |
+| `1`     | `1`      |
+| `2`     | `10`     |
+| `4`     | `100`    |
+| `8`     | `1000`   |
+| `16`     | `10000` |
+| `17`     | `10001` |
+
+In PHP you'd represent binaries by prepending `0b` to the binary number, for example `16` would be `0b10000`.
+
+There are three standard logical bitwise operators.
+
+##### `&` (AND)
+
+The result will have a bit set if both of the operands bits were set.
+
+It's easier to see how these operators behave in a table. Let's use `25` and `50` with the `&` (AND) operator:
+
+<table>
+    <thead>
+        <tr>
+            <th>Value/Operator</th>
+            <th colspan="7">Bits in Each Position</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>50</code></td>
+            <td><code>1</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+        </tr>
+        <tr>
+            <td><code>25</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+        </tr>
+        <tr>
+            <td><strong>Operation</strong></td>
+            <td><code>1 & 0</code></td>
+            <td><code>1 & 1</code></td>
+            <td><code>0 & 1</code></td>
+            <td><code>0 & 0</code></td>
+            <td><code>1 & 0</code></td>
+            <td><code>0 & 1</code></td>
+        </tr>
+        <tr>
+            <td><strong>Result</strong></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+            <td><code>0</code></td>
+            <td><code>0</code></td>
+            <td><code>0</code></td>
+        </tr>
+    </tbody>
+</table>
+
+The result is `010000` (or `10000`) which is `16` in decimal, therefore `50 & 25` is `16`.
+
+##### `|` (OR)
+
+If one or both of the operands have a bit set then the result will have that bit set.
+
+<table>
+    <thead>
+        <tr>
+            <th>Value/Operator</th>
+            <th colspan="7">Bits in Each Position</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>50</code></td>
+            <td><code>1</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+        </tr>
+        <tr>
+            <td><code>25</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+        </tr>
+        <tr>
+            <td><strong>Operation</strong></td>
+            <td><code>1 | 0</code></td>
+            <td><code>1 | 1</code></td>
+            <td><code>0 | 1</code></td>
+            <td><code>0 | 0</code></td>
+            <td><code>1 | 0</code></td>
+            <td><code>0 | 1</code></td>
+        </tr>
+        <tr>
+            <td><strong>Result</strong></td>
+            <td><code>1</code></td>
+            <td><code>1</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+            <td><code>1</code></td>
+        </tr>
+    </tbody>
+</table>
+
+The result is `111011` which is `59` in decimal, therefore `50 | 25` is `59`.
+
+##### `^` (XOR)
+
+If one and only one of the operands (not both) has the bit set then the result will have the bit set.
+
+<table>
+    <thead>
+        <tr>
+            <th>Value/Operator</th>
+            <th colspan="7">Bits in Each Position</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>50</code></td>
+            <td><code>1</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+        </tr>
+        <tr>
+            <td><code>25</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+        </tr>
+        <tr>
+            <td><strong>Operation</strong></td>
+            <td><code>1 ^ 0</code></td>
+            <td><code>1 ^ 1</code></td>
+            <td><code>0 ^ 1</code></td>
+            <td><code>0 ^ 0</code></td>
+            <td><code>1 ^ 0</code></td>
+            <td><code>0 ^ 1</code></td>
+        </tr>
+        <tr>
+            <td><strong>Result</strong></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+            <td><code>0</code></td>
+            <td><code>1</code></td>
+            <td><code>1</code></td>
+        </tr>
+    </tbody>
+</table>
+
+The result is `101011` which is `43` in decimal, therefore `50 ^ 25` is `43`.
+
+Using any of these operators on a different variable type will cause PHP to cast the variable to integer before operating on it. Therefore, using them on non-numeric strings will cause comparisons to `0` (the reason why `'not a number' == 0` results in true, by the way).
+
 #### Spaceship Operator (PHP ^7.0)
 
 It returns `-1`, `0` or `1` when `$a` is respectively less than, equal to, or greater than `$b`. Comparisons are performed according to PHP's usual type [comparison rules](https://www.php.net/manual/en/types.comparisons.php).
