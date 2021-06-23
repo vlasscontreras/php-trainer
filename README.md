@@ -418,6 +418,45 @@ The effect of this operator is to flip the bits in a value—if a bit is set it 
     </tbody>
 </table>
 
+##### Bit Shifting
+
+PHP also has operators to shift bits left and right. The effect of these operators is to shift the bit pattern of the value either left or right while inserting bits set to 0 in the newly created empty spaces.
+
+Let's shift `50`:
+
+<table>
+    <thead>
+        <tr>
+            <th>Value/Operator</th>
+            <th>Operation</th>
+            <th>Result</th>
+            <th>Result (Decimal)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>50</code></td>
+            <td>None</td>
+            <td><code>0 0 1 1 0 0 1 0</code></td>
+            <td><code>50</code></td>
+        </tr>
+        <tr>
+            <td><code>50 >> 1</code></td>
+            <td>Shift right by 1</td>
+            <td><code>0 0 0 1 1 0 0 1</code></td>
+            <td><code>25</code></td>
+        </tr>
+        <tr>
+            <td><code>50 << 1</code></td>
+            <td>Shift left by 1</td>
+            <td><code>0 1 1 0 0 1 0 0</code></td>
+            <td><code>100</code></td>
+        </tr>
+    </tbody>
+</table>
+
+**Tip:** The [`base_convert()`](https://www.php.net/manual/en/function.base-convert.php) and [`decbin()`](https://www.php.net/manual/en/function.decbin.php) functions are extremely useful. For example, to output the binary representation of the decimal number `50`, you can use `base_convert(50, 10, 2)` or `decbin(50)`.
+
 #### Spaceship Operator (PHP ^7.0)
 
 It returns `-1`, `0` or `1` when `$a` is respectively less than, equal to, or greater than `$b`. Comparisons are performed according to PHP's usual type [comparison rules](https://www.php.net/manual/en/types.comparisons.php).
