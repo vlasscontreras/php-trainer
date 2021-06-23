@@ -437,23 +437,43 @@ Let's shift `50`:
         <tr>
             <td><code>50</code></td>
             <td>None</td>
-            <td><code>0 0 1 1 0 0 1 0</code></td>
+            <td><code>0 1 1 0 0 1 0</code></td>
             <td><code>50</code></td>
         </tr>
         <tr>
             <td><code>50 >> 1</code></td>
             <td>Shift right by 1</td>
-            <td><code>0 0 0 1 1 0 0 1</code></td>
+            <td><code>0 0 1 1 0 0 1</code></td>
             <td><code>25</code></td>
         </tr>
         <tr>
             <td><code>50 << 1</code></td>
             <td>Shift left by 1</td>
-            <td><code>0 1 1 0 0 1 0 0</code></td>
+            <td><code>1 1 0 0 1 0 0</code></td>
             <td><code>100</code></td>
         </tr>
     </tbody>
 </table>
+
+So, basically you're moving `110010` left and right.
+
+When shifting left by `n`, you add `n` zeros to the right and don't remove any digits on the left (in the example below we add `[]` and leading zeros to the initial value to make it easier to see the movement), effectively multiplying the decimal value <code>×2<sup>n</sup></code> (or `×2` `n` times):
+
+| Bit Shift | Binary | Exponential | Multiplication | Result |
+| --------- | ------ | ----------- | -------------- | ------ |
+| `50 << 0` | `000[110010]` | <code>50 × 2<sup>0</sup></code> | `50 × (1)` | `50` |
+| `50 << 1` | `00[110010]0` | <code>50 × 2<sup>1</sup></code> | `50 × (2)` | `100` |
+| `50 << 2` | `0[110010]00` | <code>50 × 2<sup>2</sup></code> | `50 × (2 × 2)` | `200` |
+| `50 << 3` | `[110010]000` | <code>50 × 2<sup>3</sup></code> | `50 × (2 × 2 × 2)` | `400` |
+
+When shifting right by `n`, you remove `n` digits on the right (in the example below we add `[]` and leading zeros to the values to make it easier to see the movement), efectively dividing the decimal value by <code>2<sup>n</sup></code> (or by `2` `n` times) while loosing precision.
+
+| Bit Shift | Binary | Exponential | Multiplication | Result |
+| --------- | ------ | ----------- | -------------- | ------ |
+| `50 >> 0` | `[110010]` | <code>50 ÷ 2<sup>0</sup></code> | `50 ÷ (1)` | `50` |
+| `50 >> 1` | `0[11001`  | <code>50 ÷ 2<sup>1</sup></code> | `50 ÷ (2)` | `25` |
+| `50 >> 2` | `00[1100`  | <code>50 ÷ 2<sup>2</sup></code> | `50 ÷ (2 × 2)` | `12` |
+| `50 >> 3` | `000[110`  | <code>50 ÷ 2<sup>3</sup></code> | `50 ÷ (2 × 2 × 2)` | `6` |
 
 **Tip:** The [`base_convert()`](https://www.php.net/manual/en/function.base-convert.php) and [`decbin()`](https://www.php.net/manual/en/function.decbin.php) functions are extremely useful. For example, to output the binary representation of the decimal number `50`, you can use `base_convert(50, 10, 2)` or `decbin(50)`.
 
