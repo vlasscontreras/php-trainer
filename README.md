@@ -642,6 +642,31 @@ The difference between `array_merge()` and the `+` operator is that the second w
 ]
 ```
 
+##### `array_slice()`
+
+```php
+array_slice(
+    array $array,
+    int $offset,
+    int|null $length = null,
+    bool $preserve_keys = false
+): array
+```
+
+It returns the `$length` items starting from `$offset`. Remember getting a **slice** of 🍕.
+
+```php
+array_slice(['a' => 1, 'b' => 2, 42 => 'answer', 'c' => 3], 1, 2)
+
+// Output
+[
+    'b' => 2,
+    0   => 'answer',
+]
+```
+
+**Note:** The `$preserve_keys` applies for numeric keys only, as you can see we lost the `42`, but we set it to true, we would preserve the `42`.
+
 ### Features
 
 #### Grouped Imports (PHP ^7.0)
