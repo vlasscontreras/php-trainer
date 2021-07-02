@@ -584,6 +584,64 @@ array_combine(['a', 'b'], [1, 2])
 ]
 ```
 
+##### `array_merge()`
+
+```php
+array_merge(...array $arrays): array
+```
+
+It will **append and/or replace** any values from the previous array going from left to right. In other words, `((($array1, $array2), $array3), $array4)...`.
+
+```php
+array_merge(
+    [
+        'a' => 1,
+        'b' => 2,
+        7   => 'good'
+    ],
+    [
+        'b' => 3,
+        'c' => 4,
+        'd' => 5,
+        7   => 'luck'
+    ]
+)
+
+// Output
+[
+    'a' => 1,
+    'b' => 3,      // Overridden, took right side.
+    0   => 'good', // Renumbered
+    'c' => 4,      // Appended
+    'd' => 5,      // Appended
+    1   => 'luck', // Renumbered + appended
+]
+```
+
+The difference between `array_merge()` and the `+` operator is that the second will ignore values on the right hand if the key exist in the left hand, and unlike `array_merge()` it also includes numeric keys, and will not renumber them.
+
+```php
+[
+    'a' => 1,
+    'b' => 2,
+    7   => 'good'
+] + [
+    'b' => 3,
+    'c' => 4,
+    'd' => 5,
+    7   => 'luck'
+]
+
+// Output
+[
+    'a' => 1,
+    'b' => 2,      // Kept left side, right side ignored.
+    7   => 'good', // Kept left side, right side ignored.
+    'c' => 4,      // Appended
+    'd' => 5,      // Appended
+]
+```
+
 ### Features
 
 #### Grouped Imports (PHP ^7.0)
