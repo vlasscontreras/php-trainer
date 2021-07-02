@@ -692,6 +692,32 @@ array_unshift($array, '4th');
 ]
 ```
 
+##### `array_pop()`
+
+```php
+array_pop(array &$array): mixed
+```
+
+It will return the last element of the array, and will remove it from the array. Numeric keys will be preserved.
+
+```php
+$array = [
+    'one'   => '1st',
+    2       => '2nd',
+    'three' => '3rd'
+];
+$last = array_pop($array);
+
+// $last
+'3rd'
+
+// Array
+[
+    'one'   => '1st',
+    2       => '2nd',
+]
+```
+
 ##### `array_slice()`
 
 ```php
