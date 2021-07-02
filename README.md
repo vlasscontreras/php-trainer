@@ -642,6 +642,32 @@ The difference between `array_merge()` and the `+` operator is that the second w
 ]
 ```
 
+##### `array_shift()`
+
+```php
+array_shift(array &$array): mixed
+```
+
+It will return the first element of the array, and will remove it from the array. Numeric keys will be renumbered accordingly.
+
+```php
+$array = [
+    'one'   => '1st',
+    2       => '2nd',
+    'three' => '3rd'
+];
+$first = array_shift($array);
+
+// $first
+'1st'
+
+// Array
+[
+    0       => '2nd',
+    'three' => '3rd'
+]
+```
+
 ##### `array_slice()`
 
 ```php
