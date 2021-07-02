@@ -564,6 +564,26 @@ PHP has several functions that create (or are related to) arrays and strings. So
 - In functions that search in strings, the `$haystack` goes before the `$needle`. For example: `strpos()`, `strstr()`, `strchr()`
 - In functions that search in arrays, the `$needle` goes before the `$haystack`. For example: `in_array()`, `array_search()`
 
+#### Array Functions
+
+##### `array_combine()`
+
+```php
+array_combine(array $keys, array $values): array
+```
+
+It creates an associative array using the elements of `$keys` as keys, and the elements of `$values` as values. Both parameters **must have the same number of elements**.
+
+```php
+array_combine(['a', 'b'], [1, 2])
+
+// Output.
+[
+    'a' => 1,
+    'b' => 2,
+]
+```
+
 ### Features
 
 #### Grouped Imports (PHP ^7.0)
