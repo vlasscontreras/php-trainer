@@ -557,6 +557,13 @@ echo (int) 1234.99; // 1234
 echo (int) -1234.99; // -1234
 ```
 
+### Cheat Sheets
+
+PHP has several functions that create (or are related to) arrays and strings. Sometimes we might get confused by the fact that the order of the parameters is not the same, but here's a trick:
+
+- In functions that search in strings, the `$haystack` goes before the `$needle`. For example: `strpos()`, `strstr()`, `strchr()`
+- In functions that search in arrays, the `$needle` goes before the `$haystack`. For example: `in_array()`, `array_search()`
+
 ### Features
 
 #### Grouped Imports (PHP ^7.0)
