@@ -718,6 +718,32 @@ $last = array_pop($array);
 ]
 ```
 
+##### `array_push()`
+
+```php
+array_push(array &$array, array ...$values): int
+```
+
+It will append the given `$values` at the end of the `$array`. The opposite of [`array_pop()`](#array_pop). It also preserves the numeric indexes.
+
+The return value is the new number of elements in the `$array`.
+
+```php
+$array = [
+    'one'   => '1st',
+    2       => '2nd',
+];
+
+array_push($array, '3rd');
+
+// $array
+[
+    'one' => '1sr',
+    2     => '2nd',
+    3     => '3rd', // Last numeric index + 1.
+]
+```
+
 ##### `array_slice()`
 
 ```php
