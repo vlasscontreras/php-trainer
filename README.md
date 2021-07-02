@@ -668,6 +668,30 @@ $first = array_shift($array);
 ]
 ```
 
+##### `array_unshift()`
+
+```php
+array_unshift(array &$array, array ...$values): mixed
+```
+
+It will prepend the given `$values` at the beginning of the `$array`. The opposite of [`array_shift()`](#array_shift). It also renumbers the numeric indexes.
+
+```php
+$array = [
+    2       => '2nd',
+    'three' => '3rd'
+];
+
+array_unshift($array, '4th');
+
+// $array
+[
+    0       => '4th', // The value we just inserted.
+    1       => '2nd', // Renumbered.
+    'three' => '3rd', // Nothing exciting here.
+]
+```
+
 ##### `array_slice()`
 
 ```php
