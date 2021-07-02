@@ -671,10 +671,12 @@ $first = array_shift($array);
 ##### `array_unshift()`
 
 ```php
-array_unshift(array &$array, array ...$values): mixed
+array_unshift(array &$array, array ...$values): int
 ```
 
 It will prepend the given `$values` at the beginning of the `$array`. The opposite of [`array_shift()`](#array_shift). It also renumbers the numeric indexes.
+
+The return value is the new number of elements in the `$array`.
 
 ```php
 $array = [
