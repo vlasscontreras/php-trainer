@@ -757,12 +757,13 @@ array_slice(
 ): array
 ```
 
-It returns the `$length` items starting from `$offset`. Remember getting a **slice** of 🍕.
+It returns the `$length` items starting from `$offset` from `$array` leaving it untouched 😌.
 
 ```php
-array_slice(['a' => 1, 'b' => 2, 42 => 'answer', 'c' => 3], 1, 2)
+$array = ['a' => 1, 'b' => 2, 42 => 'answer', 'c' => 3];
+$slices = array_slice($array, 1, 2)
 
-// Output
+// $slices
 [
     'b' => 2,
     0   => 'answer',
@@ -770,6 +771,41 @@ array_slice(['a' => 1, 'b' => 2, 42 => 'answer', 'c' => 3], 1, 2)
 ```
 
 **Note:** The `$preserve_keys` applies for numeric keys only, as you can see we lost the `42`, but we set it to true, we would preserve the `42`.
+
+##### `array_splice()`
+
+```php
+array_splice(
+    array $array,
+    int $offset,
+    int|null $length = null,
+    mixed $replacement = []
+): array
+```
+
+The return value of this function is the same as in [`array_slice()`](#array_slice), but this one **removes the slice form the `$array`** and gives you the chance to replace it with `$replacement`.
+
+Numeric keys will be renumbered nontheless.
+
+```php
+$array = ['a' => 1, 'b' => 2, 42 => 'answer', 'c' => 3];
+$slices = array_splice($array, 1, 1);
+
+// $slices
+[
+    'b' => 2,
+]
+
+// $array
+[
+    'a' => 1,
+    // If we added a $replacement, that would be added here.
+    0   => 'answer',
+    'c' => 3,
+]
+```
+
+Imagine it's like extracting an slice of 🍕.
 
 ### Features
 
