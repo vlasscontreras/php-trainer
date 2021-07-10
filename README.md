@@ -1663,3 +1663,139 @@ If you're wondering from where those range values come from, here's an exercise.
 When the value is `unsigned`, the range goes from `0` to `255` (a total of 256 possible values, and `0` is one of them). If the value is signed, the range is divided in half (`128`), but we need a slot for `0` since the total possible values is still just `256`. If we said `-128` to `128`, counting zero, we would need `257` possible values (because we're not talking about the digit value, but what it needs to be in memory, so `128` negative numbers + `128` positive numbers + `1` for `0`), causing an overflow.
 
 So we consider the `0` a non-negative value, making the range from `0` to `127` a total of `128` possible positive values, therefore, the range for negative values goes from `-128` to `-1` making up another `128` values, using the total `256` values available.
+
+#### Joins
+
+Joins are used to connect tables based on supplied criteria. This lets you retrieve information from related tables. For the following examples, we're going to use the these tables:
+
+**The `customers` table (left):**
+
+| u_id | u_name    | city_id |
+| ---- | --------- | ------- |
+| 1    | John Doe  | 1       |
+| 2    | Mary Doe  | 2       |
+| 3    | Kevin Doe | 1       |
+| 4    | Kelly Doe | `NULL`  |
+
+**The `cities` table (right):**
+
+| c_id | c_name       |
+| ---- | ------------ |
+| 1    | San Salvador |
+| 2    | San Vicente  |
+| 3    | Soyapango    |
+| 4    | Apaneca      |
+
+There are multiple types of joins.
+
+##### Inner Join
+
+This is the default type of join in MySQL (hence, the `INNER` in `INNER JOIN` is effectively optional). This type will _join_ the records that match in both tables, and exclude anything that does not match.
+
+When we say _match_, we're referring to the indicated column value from the left table (`customers`) that have the same value on the indicated column value from the right table (`cities`).
+
+```sql
+SELECT * FROM customers INNER JOIN cities ON customers.city_id = cities.c_id
+```
+
+Like we said earlier, the `INNER` keyword is optional since, at least in MySQL, it is default behavior:
+
+```sql
+SELECT * FROM customers JOIN cities ON customers.city_id = cities.c_id
+```
+
+The result will be:
+
+| u_id | u_name    | city_id | c_id    | c_name       |
+| ---- | --------- | ------- | ------- | ------------ |
+| 1    | John Doe  | 1       | 1       | San Salvador |
+| 2    | Mary Doe  | 2       | 2       | San Vicente  |
+| 3    | Kevin Doe | 1       | 1       | San Salvador |
+
+We only got records where both tables match the given column value. In other words, where the city ID of a record in customers matches a record in city. Effectively, we didn't get `Kelly Doe` because there's no city with ID `NULL`.
+
+##### Left Outer Join
+
+This type of join retrieves all the records of the left table (`customers`) even if they don't match any record on the right table (`cities`). But still, it will retrieve **only** the matched records of the right table.
+
+The `OUTER` keyword, just like `INNER`, is optional when using `LEFT JOIN` since it's the default behavior.
+
+```sql
+SELECT * FROM customers LEFT OUTER JOIN cities ON customers.city_id = cities.c_id
+```
+
+Or:
+
+```sql
+SELECT * FROM customers LEFT JOIN cities ON customers.city_id = cities.c_id
+```
+
+The result will be:
+
+| u_id | u_name    | city_id | c_id    | c_name       |
+| ---- | --------- | ------- | ------- | ------------ |
+| 1    | John Doe  | 1       | 1       | San Salvador |
+| 2    | Mary Doe  | 2       | 2       | San Vicente  |
+| 3    | Kevin Doe | 1       | 1       | San Salvador |
+| 4    | Kelly Doe | `NULL`  | `NULL`  | `NULL`       |
+
+We got `Kelly Doe` included in the result set, even though no city matches the query, therefore all the columns related to `cities` are `NULL`.
+
+Essentially, we're saying "get the records that match in customers and cities, nonetheless, get everything from customers".
+
+##### Right Outer Join
+
+The opposite to the right join, this one retrieves all the records of the right table (`cities`) even if they don't match any record on the left table (`customers`). But still, it will retrieve **only** the matched records of the left table.
+
+The `OUTER` keyword, just like `INNER`, is optional when using `RIGHT JOIN` since it's the default behavior.
+
+```sql
+SELECT * FROM customers RIGHT OUTER JOIN cities ON customers.city_id = cities.c_id
+```
+
+Or:
+
+```sql
+SELECT * FROM customers RIGHT JOIN cities ON customers.city_id = cities.c_id
+```
+
+The result will be:
+
+| u_id   | u_name    | city_id | c_id    | c_name       |
+| ------ | --------- | ------- | ------- | ------------ |
+| 1      | John Doe  | 1       | 1       | San Salvador |
+| 3      | Kevin Doe | 1       | 1       | San Salvador |
+| 2      | Mary Doe  | 2       | 2       | San Vicente  |
+| `NULL` | `NULL`    | `NULL`  | 3       | Soyapango    |
+| `NULL` | `NULL`    | `NULL`  | 4       | Apaneca      |
+
+We got `Soyapango` and `Apaneca` added to the result set, even though no customer is referencing those cities, therefore, the customer-related fields are `NULL`. Also, we didn't get `Kelly Doe` this time, because there's no city where the ID is `NULL`, so that's not a match.
+
+Essentially, we're saying "get the records that match in customers and cities, nonetheless, get everything from cities".
+
+##### Full Outer Join
+
+This type of join is the mix of the [left](#left-outer-join) and [right](#right-outer-join) joins. It will retrieve all the records, either match or not, from the left table and the right table.
+
+```sql
+SELECT * FROM customers FULL OUTER JOIN cities ON customers.city_id = cities.c_id
+```
+
+Or:
+
+```sql
+SELECT * FROM customers FULL JOIN cities ON customers.city_id = cities.c_id
+```
+
+The result will be:
+
+| u_id   | u_name    | city_id | c_id    | c_name       |
+| ------ | --------- | ------- | ------- | ------------ |
+| 1      | John Doe  | 1       | 1       | San Salvador |
+| 2      | Mary Doe  | 2       | 2       | San Vicente  |
+| 3      | Kevin Doe | 1       | 1       | San Salvador |
+| 4      | Kelly Doe | `NULL`  | `NULL`  | `NULL`       |
+| `NULL` | `NULL`    | `NULL`  | 3       | Soyapango    |
+| `NULL` | `NULL`    | `NULL`  | 4       | Apaneca      |
+
+It contains all the records from both tables, either they match or not, but those who match, will be related in the result set as seen above.
