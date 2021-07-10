@@ -1561,3 +1561,105 @@ $auth->notify();
 ```bash
 php trainer pattern:observer
 ```
+
+### Databases and SQL
+
+PHP interacts with databases via drivers. It includes the MySQL driver called `mysqli` (the `i` at the end standing for _improved_), which is the remplacement for `mysql` and introduces features such as prepared statements.
+
+You can create your own driver by using PHP's PDO (PHP Data Objects) abstraction layer.
+
+#### Data Types
+
+Just like PHP variables, SQL has several data types.
+
+##### Numeric Types
+
+These are MySQL integer types. Other databases might handle them differently.
+
+<table>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Bytes</th>
+            <th>Range (Signed)</th>
+            <th>Range (Unsigned)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>TINYINT</code></td>
+            <td><code>1</code></td>
+            <td><code>-128</code> to <code>127</code></td>
+            <td><code>255</code></td>
+        </tr>
+        <tr>
+            <td><code>SMALLINT</code></td>
+            <td><code>2</code></td>
+            <td><code>-32768</code> to <code>32768</code></td>
+            <td><code>65535</code></td>
+        </tr>
+        <tr>
+            <td><code>MEDIUMINT</code></td>
+            <td><code>3</code></td>
+            <td><code>-8388608</code> to <code>8388607</code></td>
+            <td><code>16777215</code></td>
+        </tr>
+        <tr>
+            <td><code>INTEGER</code></td>
+            <td><code>4</code></td>
+            <td><code>-2147483648</code> to <code>2147483647</code></td>
+            <td><code>4294967295</code></td>
+        </tr>
+        <tr>
+            <td><code>BIGINT</code></td>
+            <td><code>8</code></td>
+            <td><code>-9223372036854775808</code> to <code>9223372036854775807</code></td>
+            <td><code>18446744073709551615</code></td>
+        </tr>
+    </tbody>
+</table>
+
+If you're wondering from where those range values come from, here's an exercise.
+
+**`TINYINT` (`1` byte/`8` bits)**
+
+<table>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>2<sup>7</sup></td>
+        <td>2<sup>6</sup></td>
+        <td>2<sup>5</sup></td>
+        <td>2<sup>4</sup></td>
+        <td>2<sup>3</sup></td>
+        <td>2<sup>2</sup></td>
+        <td>2<sup>1</sup></td>
+        <td>2<sup>0</sup></td>
+    </tr>
+    <tr>
+        <td>128</td>
+        <td>64</td>
+        <td>32</td>
+        <td>16</td>
+        <td>8</td>
+        <td>4</td>
+        <td>2</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td colspan="7"><b>Total</b></td>
+        <td colspan="1">255</td>
+    </tr>
+</table>
+
+When the value is `unsigned`, the range goes from `0` to `255` (a total of 256 possible values, and `0` is one of them). If the value is signed, the range is divided in half (`128`), but we need a slot for `0` since the total possible values is still just `256`. If we said `-128` to `128`, counting zero, we would need `257` possible values (because we're not talking about the digit value, but what it needs to be in memory, so `128` negative numbers + `128` positive numbers + `1` for `0`), causing an overflow.
+
+So we consider the `0` a non-negative value, making the range from `0` to `127` a total of `128` possible positive values, therefore, the range for negative values goes from `-128` to `-1` making up another `128` values, using the total `256` values available.
