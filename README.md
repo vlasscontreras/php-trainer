@@ -191,12 +191,20 @@ It is better (a good practice actually) not to mix both forms (symbol/word-based
 ```php
 $a = true;
 $b = false;
-$word = $a and $b; // true
-$symbol = $a && $b; // false
+$word = $a and $b; // $word = true
+$symbol = $a && $b; // $symbol = false
 assert($word === $symbol);
 ```
 
-The above is due to `and` and `or` have lower precedence than `=`. Ouch 🤕.
+The above is due to `and` and `or` have lower precedence than `=`, so the comparison happens after the assignment. You can visualize like this:
+
+```php
+($word = $a) and $b;
+```
+
+At this point `$word` has the value `true` because it is assigned, and the `and $b` part happens next but is practically being ignored, because the result of the comparison is never stored in a variable.
+
+Ouch 🤕.
 
 ▶️ Run exercise:
 
