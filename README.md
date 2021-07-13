@@ -1807,3 +1807,58 @@ The result will be:
 | `NULL` | `NULL`    | `NULL`  | 4       | Apaneca      |
 
 It contains all the records from both tables, either they match or not, but those who match, will be related in the result set as seen above.
+
+#### Keys
+
+Keys impose constraints to columns. There are multiple type of keys, but to mention a few of the most used:
+
+- `UNIQUE`: Ensures that all values in the column are different. You can have many `UNIQUE` constraints in one table.
+- `PRIMARY`: Can be defined on either a single or multiple columns. It guarantees that each row in the database will have a unique value combination for the columns in the key, hence automatically using `UNIQUE`. However, you can have only one `PRIMARY KEY` constraint. A row may not have a null value for its primary key.
+- `FOREIGN`: It references a primary key of another table.
+
+#### Indexes
+
+Indexes are data structures optimized for lookups and help the database find results faster. MySQL requires every key also be indexed, therefore, at least in MySQL, [keys and indexes are synonyms](https://dev.mysql.com/doc/refman/8.0/en/create-table.html#:~:text=KEY%20%7C%20INDEX). This requirement is to improve performance.
+
+**Note:** Although the above implies that you cannot have keys without indexes, it is possible to index columns that are not keyed.
+
+They way indexes work is by creating an "alternative database" (not really called like that, but it's easier to visualize it this way) using the [B-tree](https://en.wikipedia.org/wiki/B-tree) (for `PRIMARY KEY`, `UNIQUE`, `INDEX`, and `FULLTEXT`) data structure with the indexed columns data.
+
+This way, when you query data, the [query plan](https://dev.mysql.com/doc/refman/8.0/en/execution-plan-information.html) will determine the best way to query the data. If the query contains any of the indexed columns, the engine will prioritize the index, therefore it does not need to go through all the rows and columns. Of course, the above depends on the query, but in a nutshell, that's how it works.
+
+Think of indexes as table of contents. You don't go through an entire GitHub README file to read about MySQL indexes; instead, you click the burger and search through the titles of the README 😄
+
+The syntax for creating indexes is:
+
+```sql
+CREATE INDEX index_name
+ON table_name (column_name, ...);
+```
+
+Let's create an index for the `c_name` column of the `customers` table we were using earlier:
+
+```sql
+CREATE INDEX customers_name_idx
+ON customers (c_name); -- There can be multiple columns inside the parentheses.
+```
+
+Now if we create a query like this:
+
+```sql
+SELECT COUNT(*)
+FROM customers
+WHERE c_name = 'John Doe'
+```
+
+The engine will use the index to find the record.
+
+```sql
+SELECT COUNT(*)
+FROM customers
+WHERE c_name = 'John Doe'
+    AND city_id = 1
+```
+
+The engine will still use the index because the query plan is very smart 🤓 and will notice that we're querying an indexed column, and the result set will contain only records that match the condition, so, it will reduce the query scope to only those records instead of the whole database. Pretty neat, huh? 😃
+
+**Note:** Indexes need to be updated when data is changed, this adds an overhead to writing. So use indexes wisely 🧐
