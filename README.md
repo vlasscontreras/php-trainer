@@ -232,6 +232,8 @@ In PHP you'd represent binaries by prepending `0b` to the binary number, for exa
 
 There are three standard logical bitwise operators.
 
+**Note:** In the following examples, when we say "a bit set" it means "there is a `1` at that position". Oppositely, when we say "a bit is not set" it means "there is a `0` at that position".
+
 ##### `&` (AND)
 
 The result will have a bit set if both of the operands bits were set.
