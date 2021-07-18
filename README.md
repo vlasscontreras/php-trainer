@@ -1808,6 +1808,26 @@ The result will be:
 
 It contains all the records from both tables, either they match or not, but those who match, will be related in the result set as seen above.
 
+###### Full Outer Join for MySQL
+
+`FULL OUTER JOIN` does not exist in MySQL 😨 but they can be emulated 😌. Using the previous example, we can MySQL it as follows:
+
+```sql
+(
+    SELECT *
+    FROM customers
+    LEFT JOIN cities ON customers.city_id = cities.c_id
+)
+UNION ALL
+(
+    SELECT *
+    FROM customers
+    RIGHT JOIN cities ON customers.city_id = cities.c_id
+)
+```
+
+We apply `UNION ALL` (so duplicates are not removed, just like `FULL JOIN`) to the result of the `LEFT JOIN` and `RIGHT JOIN`.
+
 #### Keys
 
 Keys impose constraints to columns. There are multiple type of keys, but to mention a few of the most used:
