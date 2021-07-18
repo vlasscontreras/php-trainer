@@ -46,6 +46,8 @@ The `$_SERVER` superglobal contains a lot of keys, and it is important to get fa
 php trainer superglobals
 ```
 
+**Note:** Unlike the [HTML form methods like `POST` and `GET`](https://www.w3.org/TR/html52/sec-forms.html#configuring-a-form-to-communicate-with-a-server), other non-HTML form methods such as `PATCH`, `PUT`, `DELETE`, etc. don't have their own superglobal. To access them, you need to use the [`php://input` stream](https://www.php.net/manual/en/wrappers.php.php).
+
 ### Constants
 
 Constants are similar to variables but are **immutable**. They have the same naming rules as variables, but by convention will have uppercase names.
