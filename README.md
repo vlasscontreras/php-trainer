@@ -556,7 +556,7 @@ When casting strings to numeric types (such as `int` or `float`), PHP will defau
 ```php
 echo (int) '12 o clock'; // 12
 echo (int) 'Half past 12'; // 0
-echo (int) '12.30'; // 12.3
+echo (int) '12.30'; // 12
 echo (int) '7.2e2 minutes after midnight'; // 720
 ```
 
