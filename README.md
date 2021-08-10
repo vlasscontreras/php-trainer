@@ -24,7 +24,7 @@ php trainer {exercise-signature}
 
 ### Superglobals
 
-Superglobals are variables that are available automatically to the script, with no need of `global` keyword usage. Superglobals are available in every scope.
+Superglobals are variables that are available automatically to the script, with no need for `global` keyword usage. Superglobals are available in every scope.
 
 | Suberglobal | Content |
 | ----------- | ------- |
@@ -46,7 +46,7 @@ The `$_SERVER` superglobal contains a lot of keys, and it is important to get fa
 php trainer superglobals
 ```
 
-**Note:** Unlike the [HTML form methods like `POST` and `GET`](https://www.w3.org/TR/html52/sec-forms.html#configuring-a-form-to-communicate-with-a-server), other non-HTML form methods such as `PATCH`, `PUT`, `DELETE`, etc. don't have their own superglobal. To access them, you need to use the [`php://input` stream](https://www.php.net/manual/en/wrappers.php.php).
+**Note:** Unlike the [HTML form methods like `POST` and `GET`](https://www.w3.org/TR/html52/sec-forms.html#configuring-a-form-to-communicate-with-a-server), other non-HTML form methods such as `PATCH`, `PUT`, `DELETE`, etc. don't have their superglobal. To access them, you need to use the [`php://input` stream](https://www.php.net/manual/en/wrappers.php.php).
 
 ### Constants
 
@@ -77,7 +77,7 @@ echo \Math\EPSILON; // Fatal error!
 echo EPSILON; // 0.001
 ```
 
-**Note:** Assume `Math.php` is loaded when `Lang.php` is executed.
+**Note:** Assume `Math.php` is loaded when `Test.php` is executed.
 
 ▶️ Run exercise:
 
@@ -87,12 +87,12 @@ php trainer constants:namespaced
 
 #### Magic Constants
 
-There are nine magical constants that change depending on where they are used. For example, the value of `__LINE__` depends on the line that it's used on in the script. All these "magical" constants are resolved at compile time, unlike regular constants, which are resolved at runtime. These special constants are case-insensitive and are as follows:
+Nine constants change depending on where they are used, these are called magic constants. For example, the value of `__LINE__` depends on the line that it's used in the script. All these "magical" constants are resolved at compile-time, unlike regular constants, which are resolved at runtime. These special constants are case-insensitive and are as follows:
 
 | Constant | Content |
 | -------- | ------- |
-| `__LINE__`      | The current line number of the PHP script being executed |
-| `__DIR__`       | The directory of the file. If used inside an include, the directory of the included file is returned. This is equivalent to dirname(__FILE__). This directory name does not have a trailing slash unless it is the root directory |
+| `__LINE__`      | The line number of the PHP executed script |
+| `__DIR__`       | The directory of the file. If used inside an include, the directory of the included file is returned. This is equivalent to `dirname(__FILE__)`. This directory name does not have a trailing slash unless it is the root directory |
 | `__FILE__`      | The fully resolved (including symlinks) name and path of the file being executed |
 | `__CLASS__`     | The name of the class being executed |
 | `__METHOD__`    | The name of the class method being executed |
@@ -122,16 +122,16 @@ These constants are defined by the PHP core. This includes PHP, the Zend engine,
 | `PHP_DEBUG`                | `int`    | N/A |
 | `PHP_MAXPATHLEN`           | `int`    | The maximum length of filenames (including path) supported by this build of PHP. |
 | `PHP_OS`                   | `string` | The operating system PHP was built for. |
-| `PHP_OS_FAMILY`            | `string` | The operating system family PHP was built for. One of `Windows`, `BSD`, `Darwin`, `Solaris`, `Linux` or `Unknown`. Available `. |
+| `PHP_OS_FAMILY`            | `string` | The operating system family PHP was built for. One of `Windows`, `BSD`, `Darwin`, `Solaris`, `Linux` or `Unknown`. |
 | `PHP_SAPI`                 | `string` | The Server API for this build of PHP. See also `php_sapi_name()`. |
 | `PHP_EOL`                  | `string` | The correct 'End Of Line' symbol for this platform. |
 | `PHP_INT_MAX`              | `int`    | The largest integer supported in this build of PHP. Usually `int(2147483647)` in 32 bit systems and `int(9223372036854775807)` in 64 bit systems. |
-| `PHP_INT_MIN`              | `int`    | The smallest integer supported in this build of PHP. Usually `int(-2147483648)` in 32 bit systems and `int(-9223372036854775808)` in 64 bit systems. Usually, PHP_INT_MIN === ~PHP_INT_MAX. |
+| `PHP_INT_MIN`              | `int`    | The smallest integer supported in this build of PHP. Usually `int(-2147483648)` in 32 bit systems and `int(-9223372036854775808)` in 64 bit systems. Usually, `PHP_INT_MIN === ~PHP_INT_MAX`. |
 | `PHP_INT_SIZE`             | `int`    | The size of an integer in bytes in this build of PHP. |
-| `PHP_FLOAT_DIG`            | `int`    | Number of decimal digits that can be rounded into a float and back without precision loss. Available `. |
-| `PHP_FLOAT_EPSILON`        | `float`  | Smallest representable positive number `x`, so that `x + 1.0` != `1.0`. Available `. |
-| `PHP_FLOAT_MIN`            | `float`  | Smallest representable positive floating point number. If you need the smallest representable negative floating point number, use `PHP_FLOAT_MAX`. Available `.
-| `PHP_FLOAT_MAX`            | `float`  | Largest representable floating point number. Available `. |
+| `PHP_FLOAT_DIG`            | `int`    | Number of decimal digits that can be rounded into a float and back without precision loss. |
+| `PHP_FLOAT_EPSILON`        | `float`  | Smallest representable positive number `x`, so that `x + 1.0` != `1.0`. |
+| `PHP_FLOAT_MIN`            | `float`  | Smallest representable positive floating point number. If you need the smallest representable negative floating point number, use `PHP_FLOAT_MAX`. |
+| `PHP_FLOAT_MAX`            | `float`  | Largest representable floating point number. |
 | `DEFAULT_INCLUDE_PATH`     | `string` | N/A |
 | `PEAR_INSTALL_DIR`         | `string` | N/A |
 | `PEAR_EXTENSION_DIR`       | `string` | N/A |
@@ -147,13 +147,13 @@ These constants are defined by the PHP core. This includes PHP, the Zend engine,
 | `PHP_CONFIG_FILE_PATH`     | `string` | N/A |
 | `PHP_CONFIG_FILE_SCAN_DIR` | `string` | N/A |
 | `PHP_SHLIB_SUFFIX`         | `string` | The build-platform's shared library suffix, such as "so" (most Unixes) or "dll" (Windows). |
-| `PHP_FD_SETSIZE`           | `string` | The maximum number of file descriptors for select system calls. Available `. |
+| `PHP_FD_SETSIZE`           | `string` | The maximum number of file descriptors for select system calls. |
 
 #### Error Reporting Constants
 
 | Constant | Type | Description | Value |
 | -------- | ---- | ----------- | ----- |
-| `E_ERROR`             | `int` | Fatal run-time errors. These indicate errors that can not be recovered from, such as a memory allocation problem. Execution of the script is halted. | `1`     |
+| `E_ERROR`             | `int` | Fatal run-time errors. These indicate errors that can not be recovered from, such as a memory allocation problem. The execution of the script is halted. | `1`     |
 | `E_WARNING`           | `int` | Run-time warnings (non-fatal errors). Execution of the script is not halted. | `2`     |
 | `E_PARSE`             | `int` | Compile-time parse errors. Parse errors should only be generated by the parser. | `4`     |
 | `E_NOTICE`            | `int` | Run-time notices. Indicate that the script encountered something that could indicate an error, but could also happen in the normal course of running a script. | `8`     |
@@ -165,7 +165,7 @@ These constants are defined by the PHP core. This includes PHP, the Zend engine,
 | `E_USER_WARNING`      | `int` | User-generated warning message. This is like an E_WARNING, except it is generated in PHP code by using the PHP function `trigger_error()`. | `512`   |
 | `E_USER_NOTICE`       | `int` | User-generated notice message. This is like an E_NOTICE, except it is generated in PHP code by using the PHP function `trigger_error()`. | `1024`  |
 | `E_STRICT`            | `int` | Enable to have PHP suggest changes to your code which will ensure the best interoperability and forward compatibility of your code. | `2048`  |
-| `E_RECOVERABLE_ERROR` | `int` | Catchable fatal error. It indicates that a probably dangerous error occurred, but did not leave the Engine in an unstable state. If the error is not caught by a user defined handle (see also `set_error_handler()`), the application aborts as it was an `E_ERROR`.	| `4096`  |
+| `E_RECOVERABLE_ERROR` | `int` | Catchable fatal error. It indicates that a probably dangerous error occurred, but did not leave the Engine in an unstable state. If the error is not caught by a user-defined handle (see also `set_error_handler()`), the application aborts as it was an `E_ERROR`. | `4096`  |
 | `E_DEPRECATED`        | `int` | Run-time notices. Enable this to receive warnings about code that will not work in future versions. | `8192`  |
 | `E_USER_DEPRECATED`   | `int` | User-generated warning message. This is like an E_DEPRECATED, except it is generated in PHP code by using the PHP function `trigger_error()`. | `16384` |
 | `E_ALL`               | `int` | All errors and warnings, as supported. | `32767` |
@@ -204,7 +204,7 @@ The above is due to `and` and `or` have lower precedence than `=`, so the compar
 ($word = $a) and $b;
 ```
 
-At this point `$word` has the value `true` because it is assigned, and the `and $b` part happens next but is practically being ignored, because the result of the comparison is never stored in a variable.
+At this point `$word` has the value `true` because it is assigned, and the `and $b` part happens next but is practically being ignored because the result of the comparison is never stored in a variable.
 
 Ouch 🤕.
 
@@ -218,15 +218,15 @@ php trainer operator:logic-precedence
 
 Bitwise operators work on the bits of integers represented in binary form. Every integer has its representation in binary, for example:
 
-| Decimal | Binary   |
-| ------- | -------- |
-| `0`     | `0`      |
-| `1`     | `1`      |
-| `2`     | `10`     |
-| `4`     | `100`    |
-| `8`     | `1000`   |
-| `16`     | `10000` |
-| `17`     | `10001` |
+| Decimal | Binary  |
+| ------- | ------- |
+| `0`     | `0`     |
+| `1`     | `1`     |
+| `2`     | `10`    |
+| `4`     | `100`   |
+| `8`     | `1000`  |
+| `16`    | `10000` |
+| `17`    | `10001` |
 
 In PHP you'd represent binaries by prepending `0b` to the binary number, for example `16` would be `0b10000`.
 
@@ -236,7 +236,7 @@ There are three standard logical bitwise operators.
 
 ##### `&` (AND)
 
-The result will have a bit set if both of the operands bits were set.
+The result will have a bit set if both of the bits of the operands were set.
 
 It's easier to see how these operators behave in a table. Let's use `25` and `50` with the `&` (AND) operator:
 
@@ -467,7 +467,7 @@ Let's shift `50`:
     </tbody>
 </table>
 
-So, basically you're moving `110010` left and right.
+So, you're moving `110010` left and right.
 
 When shifting left by `n`, you add `n` zeros to the right and don't remove any digits on the left (in the example below we add `[]` and leading zeros to the initial value to make it easier to see the movement), effectively multiplying the decimal value <code>×2<sup>n</sup></code> (or `×2` `n` times):
 
@@ -478,7 +478,7 @@ When shifting left by `n`, you add `n` zeros to the right and don't remove any d
 | `50 << 2` | `0[110010]00` | <code>50 × 2<sup>2</sup></code> | `50 × (2 × 2)` | `200` |
 | `50 << 3` | `[110010]000` | <code>50 × 2<sup>3</sup></code> | `50 × (2 × 2 × 2)` | `400` |
 
-When shifting right by `n`, you remove `n` digits on the right (in the example below we add `[]` and leading zeros to the values to make it easier to see the movement), efectively dividing the decimal value by <code>2<sup>n</sup></code> (or by `2` `n` times) while loosing precision.
+When shifting right by `n`, you remove `n` digits on the right (in the example below we add `[]` and leading zeros to the values to make it easier to see the movement), effectively dividing the decimal value by <code>2<sup>n</sup></code> (or by `2` `n` times) while losing precision.
 
 | Bit Shift | Binary | Exponential | Multiplication | Result |
 | --------- | ------ | ----------- | -------------- | ------ |
@@ -630,7 +630,7 @@ array_merge(
 ]
 ```
 
-The difference between `array_merge()` and the `+` operator is that the second will ignore values on the right hand if the key exist in the left hand, and unlike `array_merge()` it also includes numeric keys, and will not renumber them.
+The difference between `array_merge()` and the `+` operator is that the second will ignore values on the right hand if the key exists in the left hand, and unlike `array_merge()` it also includes numeric keys, and will not renumber them.
 
 ```php
 [
@@ -660,7 +660,7 @@ The difference between `array_merge()` and the `+` operator is that the second w
 array_shift(array &$array): mixed
 ```
 
-It will return the first element of the array, and will remove it from the array. Numeric keys will be renumbered accordingly.
+It will return the first element of the array and will remove it from the array. Numeric keys will be renumbered accordingly.
 
 ```php
 $array = [
@@ -712,7 +712,7 @@ array_unshift($array, '4th');
 array_pop(array &$array): mixed
 ```
 
-It will return the last element of the array, and will remove it from the array. Numeric keys will be preserved.
+It will return the last element of the array and will remove it from the array. Numeric keys will be preserved.
 
 ```php
 $array = [
@@ -795,9 +795,9 @@ array_splice(
 ): array
 ```
 
-The return value of this function is the same as in [`array_slice()`](#array_slice), but this one **removes the slice form the `$array`** and gives you the chance to replace it with `$replacement`.
+The return value of this function is the same as in [`array_slice()`](#array_slice), but this one **removes the slice from the `$array`** and gives you the chance to replace it with `$replacement`.
 
-Numeric keys will be renumbered nontheless.
+Numeric keys will be renumbered nonetheless.
 
 ```php
 $array = ['a' => 1, 'b' => 2, 42 => 'answer', 'c' => 3];
@@ -817,13 +817,13 @@ $slices = array_splice($array, 1, 1);
 ]
 ```
 
-Imagine it's like extracting an slice of 🍕.
+Imagine it's like extracting a slice of 🍕.
 
 ### Features
 
 #### Grouped Imports (PHP ^7.0)
 
-Instead of defining the entire class path, we can group imports of a namespace into one curly brace group.
+Instead of defining the entire classpath, we can group imports of a namespace into one curly brace group.
 
 ```php
 use Trainer\General\GroupedImports\Types\{
@@ -886,7 +886,7 @@ php trainer anonymous-classes
 
 #### Constructor Property Promotion (PHP ^8.0)
 
-This feature cleans up the constructor repetition by assigning the property visibility onto the constructor parameter. Notice that this still behaves like normal properties when it comes to primitive vs. non-primitive initializations, hence, you can only auto-initialize a property with primitives, not expressions.
+This feature cleans up the constructor repetition by assigning the property visibility on the constructor parameter. Notice that this still behaves like normal properties when it comes to primitive vs. non-primitive initializations, hence, you can only auto-initialize a property with primitives, not expressions.
 
 ```php
 class Person
@@ -966,7 +966,7 @@ php trainer string-helpers
 
 #### Weak Maps (PHP ^8.0)
 
-A map (or dictionary) that accepts objects as keys. Unlike SplObjectStorage, an object in a key of WeakMap does not contribute toward the object's reference count. That is, if at any point the only remaining reference to an object is the key of a WeakMap, the object will be garbage collected and removed from the WeakMap.
+A map (or dictionary) that accepts objects as keys. Unlike `SplObjectStorage`, an object in a key of WeakMap does not contribute toward the object's reference count. That is, if at any point the only remaining reference to an object is the key of a WeakMap, the object will be garbage collected and removed from the WeakMap.
 
 ```php
 $object = new stdClass();
@@ -987,7 +987,7 @@ php trainer weak-maps
 
 #### Union Types (PHP ^8.0)
 
-When a function/method can handle multiple (but specific) types of arguments, we can type-hint those in the function definition. Notice that this kind of existed in PHP 7 with the `?` before the type token, but it was just a union between the given type and `null`.
+When a function/method can handle multiple (but specific) types of arguments, we can type-hint those in the function definition. Notice that this kind of type hinting existed in PHP 7 with the `?` before the type token, but it was just a union between the given type and `null`.
 
 ```php
 function cancel(string | DateTime $when)
@@ -1111,7 +1111,7 @@ php trainer oop:inheritance
 
 #### Abstract Classes
 
-Abstract classes provide templates or base for any subclasses. A class is abstract when the `abstract` keyword is added before the `class` keyword on the class definition. Unlike [interfaces](#interfaces), abstract classes can define properties and behavior.
+Abstract classes provide templates or a base for any subclasses. A class is abstract when the `abstract` keyword is added before the `class` keyword on the class definition. Unlike [interfaces](#interfaces), abstract classes can define properties and behavior.
 
 Adding `abstract` to a class:
 
@@ -1184,7 +1184,7 @@ class NewsletterController
 
 **Full example:** `src/OOP/Interfaces/Interfaces.php`.
 
-**Important:** In the controller class of the full example, we implement a concept called **Object Composition**. Make sure you take a look to the constructor of that class to get more details 😉.
+**Important:** In the controller class of the full example, we implement a concept called **Object Composition**. Make sure you take a look at the constructor of that class to get more details 😉.
 
 ▶️ Run exercise:
 
@@ -1355,7 +1355,7 @@ php trainer principle:open-closed
 
 #### Liskov Substitution Principle
 
-The **L** in **SOLID**. This principle dictates that derived classes (implementation of an abstraction or interface) must be substitutable for their base class (anywhere where the abstraction is accepted). Essentially, any LSP-compliant class should have the same contract including return types.
+The **L** in **SOLID**. This principle dictates that derived classes (implementation of an abstract class or interface) must be substitutable for their base class (anywhere where the abstraction is accepted). Essentially, any LSP-compliant class should have the same contract including return types.
 
 ```php
 $fileReporitory = new FileLessonRepository();
@@ -1379,7 +1379,7 @@ php trainer principle:liskov-substitution
 
 #### Interface Segregation
 
-The **I** in **SOLID**. This principle dictates clients should not be forced to implement an interface they don't use. This can be interpreted and implemented thinking on the knowledge each class needs from each other.
+The **I** in **SOLID**. This principle dictates clients should not be forced to implement an interface they don't use. This can be interpreted and implemented thinking on the knowledge each class needs from others.
 
 If a class `TypeA` only needs a little portion of data or behavior of a given object, that's when this principle suggests to segregate the implementation and only ask for an abstraction or interface `InterfaceA`, so any class implementing it can be used by `TypeA` since what the `InterfaceA` contract introduces is all that we need.
 
@@ -1576,7 +1576,7 @@ php trainer pattern:observer
 
 ### Databases and SQL
 
-PHP interacts with databases via drivers. It includes the MySQL driver called `mysqli` (the `i` at the end standing for _improved_), which is the remplacement for `mysql` and introduces features such as prepared statements.
+PHP interacts with databases via drivers. It includes the MySQL driver called `mysqli` (the `i` at the end standing for _improved_), which is the replacement for `mysql` and introduces features such as prepared statements.
 
 You can create your own driver by using PHP's PDO (PHP Data Objects) abstraction layer.
 
@@ -1678,7 +1678,7 @@ So we consider the `0` a non-negative value, making the range from `0` to `127` 
 
 #### Joins
 
-Joins are used to connect tables based on supplied criteria. This lets you retrieve information from related tables. For the following examples, we're going to use the these tables:
+Joins are used to connect tables based on supplied criteria. This lets you retrieve information from related tables. For the following examples, we're going to use these tables:
 
 **The `customers` table (left):**
 
@@ -1702,7 +1702,7 @@ There are multiple types of joins.
 
 ##### Inner Join
 
-This is the default type of join in MySQL (hence, the `INNER` in `INNER JOIN` is effectively optional). This type will _join_ the records that match in both tables, and exclude anything that does not match.
+This is the default type of join in MySQL (hence, the `INNER` in `INNER JOIN` is effectively optional). This type will _join_ the records that match in both tables and exclude anything that does not match.
 
 When we say _match_, we're referring to the indicated column value from the left table (`customers`) that have the same value on the indicated column value from the right table (`cities`).
 
@@ -1724,7 +1724,7 @@ The result will be:
 | 2    | Mary Doe  | 2       | 2       | San Vicente  |
 | 3    | Kevin Doe | 1       | 1       | San Salvador |
 
-We only got records where both tables match the given column value. In other words, where the city ID of a record in customers matches a record in city. Effectively, we didn't get `Kelly Doe` because there's no city with ID `NULL`.
+We only got records where both tables match the given column value. In other words, where the city ID of a record in customers matches a record in `city`. Effectively, we didn't get `Kelly Doe` because there's no city with ID `NULL`.
 
 ##### Left Outer Join
 
@@ -1810,11 +1810,11 @@ The result will be:
 | `NULL` | `NULL`    | `NULL`  | 3       | Soyapango    |
 | `NULL` | `NULL`    | `NULL`  | 4       | Apaneca      |
 
-It contains all the records from both tables, either they match or not, but those who match, will be related in the result set as seen above.
+It contains all the records from both tables, either they match or not, but those who match will be related in the result set as seen above.
 
 ###### Full Outer Join for MySQL
 
-`FULL OUTER JOIN` does not exist in MySQL 😨 but they can be emulated 😌. Using the previous example, we can MySQL it as follows:
+`FULL OUTER JOIN` does not exist in MySQL 😨 but they can be emulated 😌. Using the previous example, we can MySQL-it as follows:
 
 ```sql
 (
@@ -1834,7 +1834,7 @@ We apply `UNION ALL` (so duplicates are not removed, just like `FULL JOIN`) to t
 
 #### Keys
 
-Keys impose constraints to columns. There are multiple type of keys, but to mention a few of the most used:
+Keys impose constraints on columns. There are multiple types of keys, but to mention a few of the most used:
 
 - `UNIQUE`: Ensures that all values in the column are different. You can have many `UNIQUE` constraints in one table.
 - `PRIMARY`: Can be defined on either a single or multiple columns. It guarantees that each row in the database will have a unique value combination for the columns in the key, hence automatically using `UNIQUE`. However, you can have only one `PRIMARY KEY` constraint. A row may not have a null value for its primary key.
@@ -1842,15 +1842,15 @@ Keys impose constraints to columns. There are multiple type of keys, but to ment
 
 #### Indexes
 
-Indexes are data structures optimized for lookups and help the database find results faster. MySQL requires every key also be indexed, therefore, at least in MySQL, [keys and indexes are synonyms](https://dev.mysql.com/doc/refman/8.0/en/create-table.html#:~:text=KEY%20%7C%20INDEX). This requirement is to improve performance.
+Indexes are data structures optimized for lookups and help the database find results faster. MySQL requires every key also to be indexed, therefore, at least in MySQL, [keys and indexes are synonyms](https://dev.mysql.com/doc/refman/8.0/en/create-table.html#:~:text=KEY%20%7C%20INDEX). This requirement is to improve performance.
 
 **Note:** Although the above implies that you cannot have keys without indexes, it is possible to index columns that are not keyed.
 
-They way indexes work is by creating an "alternative database" (not really called like that, but it's easier to visualize it this way) using the [B-tree](https://en.wikipedia.org/wiki/B-tree) (for `PRIMARY KEY`, `UNIQUE`, `INDEX`, and `FULLTEXT`) data structure with the indexed columns data.
+The way indexes work is by creating an "alternative database" (not called like that, but it's easier to visualize it this way) using the [B-tree](https://en.wikipedia.org/wiki/B-tree) (for `PRIMARY KEY`, `UNIQUE`, `INDEX`, and `FULLTEXT`) data structure with the indexed columns data.
 
 This way, when you query data, the [query plan](https://dev.mysql.com/doc/refman/8.0/en/execution-plan-information.html) will determine the best way to query the data. If the query contains any of the indexed columns, the engine will prioritize the index, therefore it does not need to go through all the rows and columns. Of course, the above depends on the query, but in a nutshell, that's how it works.
 
-Think of indexes as table of contents. You don't go through an entire GitHub README file to read about MySQL indexes; instead, you click the burger and search through the titles of the README 😄
+Think of indexes as a table of contents. You don't go through an entire GitHub README file to read about MySQL indexes; instead, you click the burger and search through the titles of the README 😄
 
 The syntax for creating indexes is:
 
@@ -1885,4 +1885,4 @@ WHERE c_name = 'John Doe'
 
 The engine will still use the index because the query plan is very smart 🤓 and will notice that we're querying an indexed column, and the result set will contain only records that match the condition, so, it will reduce the query scope to only those records instead of the whole database. Pretty neat, huh? 😃
 
-**Note:** Indexes need to be updated when data is changed, this adds an overhead to writing. So use indexes wisely 🧐
+**Note:** Indexes need to be updated when data is changed, this adds overhead to writing. So use indexes wisely 🧐
