@@ -597,15 +597,18 @@ PHP follows different rules across entities/members in terms of case sensitivene
 
 - Constants
 - Variables
+- Array keys
 
 ```php
 define('PI', 3.1416);
 const VERSION = 7;
 $name = 'Harry PHPotter';
+$complex = ['a' => 'HermioneJS'];
 
 echo pi; // Use of undefined constant pi, assumes 'pi' as string.
 echo version; // Use of undefined constant pi, assumes 'version' as string.
 echo $Name; // Undefined variable: Name.
+echo $complex['A']; // Undefined index: A.
 ```
 
 ##### Case Insensitive
