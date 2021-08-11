@@ -928,6 +928,38 @@ $slices = array_splice($array, 1, 1);
 
 Imagine it's like extracting a slice of 🍕.
 
+#### Objects
+
+When serializing objects, the `serialize()` function will try to find the `__serialize()` and `__sleep()` methods.
+
+```php
+public function __sleep(): array
+{
+    return [
+        'name',
+        'email',
+        'phone',
+    ];
+}
+```
+
+This method must return an array containing the property names that should be included in the serialization.
+
+```php
+public function __serialize(): array
+{
+    return [
+        'name'  => $this->name,
+        'email' => $this->email,
+        'phone' => $this->phone,
+    ];
+}
+```
+
+This method must return an associative array containing the property names with their respective values that represent the serialized form of the object.
+
+As you can see, `__serialize()` overrides the behavior of `__sleep()` because you can include as many keys as you want. Therefore, if both `__serialize()` and `__sleep()` are defined, only `__serialize()` will be called.
+
 ### SPL (Standard PHP Library)
 
 The Standard PHP Library (SPL) is a collection of interfaces and classes that are meant to solve common problems. It provides a set of standard data structures, iterators to traverse over objects, interfaces, standard Exceptions, a number of classes to work with files and autoloading functions.
@@ -951,7 +983,7 @@ foreach ($fruitArrayObject as $key => $val) {
     echo "The codeletter of $val is $key\n";
 }
 
-// This works because of ArrayObject::ARRAY_AS_PROPS
+// This works because of ArrayObject::ARRAY_AS_PROPS, can also be set with ArrayObject::setFlags()
 echo $fruitArrayObject->S; // Android 12
 ```
 
