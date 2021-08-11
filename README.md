@@ -925,6 +925,33 @@ $slices = array_splice($array, 1, 1);
 
 Imagine it's like extracting a slice of 🍕.
 
+### SPL (Standard PHP Library)
+
+The Standard PHP Library (SPL) is a collection of interfaces and classes that are meant to solve common problems. It provides a set of standard data structures, iterators to traverse over objects, interfaces, standard Exceptions, a number of classes to work with files and autoloading functions.
+
+#### ArrayObject
+
+This class allows objects to work as arrays.
+
+```php
+$fruits = [
+    'P' => 'Android 9',
+    'Q' => 'Android 10',
+    'R' => 'Android 11',
+    'S' => 'Android 12'
+];
+
+$fruitArrayObject = new ArrayObject($fruits, ArrayObject::ARRAY_AS_PROPS);
+$fruitArrayObject->ksort();
+
+foreach ($fruitArrayObject as $key => $val) {
+    echo "The codeletter of $val is $key\n";
+}
+
+// This works because of ArrayObject::ARRAY_AS_PROPS
+echo $fruitArrayObject->S; // Android 12
+```
+
 ### Features
 
 #### Grouped Imports (PHP ^7.0)
