@@ -930,6 +930,8 @@ Imagine it's like extracting a slice of 🍕.
 
 #### Objects
 
+##### Serialization
+
 When serializing objects, the `serialize()` function will try to find the `__serialize()` and `__sleep()` methods.
 
 ```php
@@ -959,6 +961,40 @@ public function __serialize(): array
 This method must return an associative array containing the property names with their respective values that represent the serialized form of the object.
 
 As you can see, `__serialize()` overrides the behavior of `__sleep()` because you can include as many keys as you want. Therefore, if both `__serialize()` and `__sleep()` are defined, only `__serialize()` will be called.
+
+##### Trait Method Conflict
+
+When multiple traits implement methods with the same name, you should pick which one to implement using the `insteadof` keyword or all of them with aliases using the `as` keyword:
+
+```php
+trait CommandTrait
+{
+    public function run()
+    {
+        //
+    }
+}
+
+trait PersonTrait
+{
+    public function run()
+    {
+        //
+    }
+}
+
+class Person
+{
+    use CommandTrait;
+    use PersonTrait {
+        PersonTrait::run insteadof CommandTrait;
+        CommandTrait::run as runCommand;
+    }
+}
+
+(new Person())->run(); // PersonTrait::run()
+(new Person())->runCommand(); // CommandTrait::run()
+```
 
 ### SPL (Standard PHP Library)
 
