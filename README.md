@@ -571,14 +571,92 @@ echo (int) -1234.99; // -1234
 
 ### Cheat Sheets
 
-PHP has several functions that create (or are related to) arrays and strings. Sometimes we might get confused by the fact that the order of the parameters is not the same, but here's a trick:
+#### Case Sensitiveness
 
-- In functions that search in strings, the `$haystack` goes before the `$needle`. For example: `strpos()`, `strstr()`, `strchr()`
-- In functions that search in arrays, the `$needle` goes before the `$haystack`. For example: `in_array()`, `array_search()`
+PHP follows different rules across entities/members in terms of case sensitiveness. Here's a list of the most important ones:
 
-#### Array Functions
+##### Case Sensitive
 
-##### `array_combine()`
+- Constants
+- Variables
+
+```php
+define('PI', 3.1416);
+const VERSION = 7;
+$name = 'Harry PHPotter';
+
+echo pi; // Use of undefined constant pi, assumes 'pi' as string.
+echo version; // Use of undefined constant pi, assumes 'version' as string.
+echo $Name; // Undefined variable: Name.
+```
+
+##### Case Insensitive
+
+- Namespaces
+- Classes
+- Methods
+- Functions
+
+```php
+namespace App\Middleware;
+
+class Localize {
+    public static function getLocale() {
+        echo 'en_US';
+    }
+}
+
+// In another file.
+App\MiddleWare\Localize::GetLocale(); // en_US.
+```
+
+#### Strings
+
+In functions that search in strings, the `$haystack` goes before the `$needle`. For example: `strpos()`, `strstr()`, `strchr()`.
+
+##### Embedding Strings
+
+PHP can embed strings stored in variables by using the `"` (double quotes) and depending on the value access complexity, `{}` to separate it from the rest of the string.
+
+```php
+$name = 'Vladimir';
+$complex = ['alias' => 'Vlass'];
+
+// My name is Vladimir, but you can call me Vlass.
+echo "My name is $name, but you can call me {$complex['alias']}.";
+```
+
+If you were using single quotes `'`, then:
+
+```php
+$name = 'Vladimir';
+$complex = ['alias' => 'Vlass'];
+
+// My name is Vladimir, but you can call me Vlass.
+echo 'My name is $name, but you can call me {$complex['alias']}.';
+```
+
+In addition, HEREDOC is another way of replicating the above:
+
+```php
+$name = 'Vladimir';
+$complex = ['alias' => 'Vlass'];
+
+// My name is Vladimir, but you can call me Vlass.
+echo <<<HEREDOC
+My name is $name, but you can call me {$complex['alias']}.
+HEREDOC;
+```
+
+As a side note, NOWDOC has the same effect as using single quotes
+
+#### Arrays
+
+In functions that search in arrays, the `$needle` goes before the `$haystack`. For example: `in_array()`, `array_search()`.
+
+##### Array Functions
+
+###### `array_combine()`
 
 ```php
 array_combine(array $keys, array $values): array
@@ -596,7 +674,7 @@ array_combine(['a', 'b'], [1, 2])
 ]
 ```
 
-##### `array_merge()`
+###### `array_merge()`
 
 ```php
 array_merge(...array $arrays): array
@@ -654,7 +732,7 @@ The difference between `array_merge()` and the `+` operator is that the second w
 ]
 ```
 
-##### `array_shift()`
+###### `array_shift()`
 
 ```php
 array_shift(array &$array): mixed
@@ -680,7 +758,7 @@ $first = array_shift($array);
 ]
 ```
 
-##### `array_unshift()`
+###### `array_unshift()`
 
 ```php
 array_unshift(array &$array, array ...$values): int
@@ -706,7 +784,7 @@ array_unshift($array, '4th');
 ]
 ```
 
-##### `array_pop()`
+###### `array_pop()`
 
 ```php
 array_pop(array &$array): mixed
@@ -732,7 +810,7 @@ $last = array_pop($array);
 ]
 ```
 
-##### `array_push()`
+###### `array_push()`
 
 ```php
 array_push(array &$array, array ...$values): int
@@ -758,7 +836,7 @@ array_push($array, '3rd');
 ]
 ```
 
-##### `array_slice()`
+###### `array_slice()`
 
 ```php
 array_slice(
@@ -784,7 +862,7 @@ $slices = array_slice($array, 1, 2)
 
 **Note:** The `$preserve_keys` applies for numeric keys only, as you can see we lost the `42`, but we set it to true, we would preserve the `42`.
 
-##### `array_splice()`
+###### `array_splice()`
 
 ```php
 array_splice(
