@@ -569,6 +569,24 @@ echo (int) 1234.99; // 1234
 echo (int) -1234.99; // -1234
 ```
 
+#### Floats to Integers in Array Keys
+
+When using floats in array keys, PHP will do the same conversion logic [as seen previously](#floats-to-integers), replacing any previous value with the same result.
+
+```php
+$array = [
+    0   => 'zero',
+    0.5 => 'half',
+    1   => 'one',
+    1.5 => 'one and a half'
+];
+
+[
+    0 => 'half', // 0.5 casted to integer as 0, replaces 0.
+    1 => 'one and a half', // 1.5 casted to integer as 1, replaces 1.
+]
+```
+
 ### Cheat Sheets
 
 #### Case Sensitiveness
