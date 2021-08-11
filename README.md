@@ -626,17 +626,17 @@ $complex = ['alias' => 'Vlass'];
 echo "My name is $name, but you can call me {$complex['alias']}.";
 ```
 
-If you were using single quotes `'`, then:
+If you were using single quotes `'`, then you wouldn't be embedding the variables, just showing them literally:
 
 ```php
 $name = 'Vladimir';
 $complex = ['alias' => 'Vlass'];
 
-// My name is Vladimir, but you can call me Vlass.
-echo 'My name is $name, but you can call me {$complex['alias']}.';
+// My name is $name, but you can call me {$complex["alias"]}.
+echo 'My name is $name, but you can call me {$complex["alias"]}.';
 ```
 
-In addition, HEREDOC is another way of replicating the above:
+In addition, HEREDOC is another way of embedding strings:
 
 ```php
 $name = 'Vladimir';
@@ -648,7 +648,17 @@ My name is $name, but you can call me {$complex['alias']}.
 HEREDOC;
 ```
 
-As a side note, NOWDOC has the same effect as using single quotes
+NOWDOC has the same effect as using single quotes:
+
+```php
+$name = 'Vladimir';
+$complex = ['alias' => 'Vlass'];
+
+// My name is $name, but you can call me {$complex['alias']}.
+echo <<<'NOWDOC'
+My name is $name, but you can call me {$complex['alias']}.
+NOWDOC;
+```
 
 #### Arrays
 
