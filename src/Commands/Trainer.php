@@ -43,6 +43,7 @@ class Trainer
         \Trainer\Principles\LiskovSubstitution\LiskovSubstitution::class,
         \Trainer\Principles\OpenClosed\OpenClosed::class,
         \Trainer\Principles\SingleResponsibility\SingleResponsibility::class,
+        \Trainer\SOAP\Client::class,
         \Trainer\Superglobals\Superglobals::class,
         \Trainer\XML\DOMDocument\XPath::class,
         \Trainer\XML\DOMDocument\Build::class,

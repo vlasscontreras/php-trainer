@@ -2230,3 +2230,25 @@ foreach ($results as $element) {
 ```bash
 php trainer xml:simple:xpath
 ```
+
+### SOAP
+
+PHP ships a SOAP client and a SOAP server with it. You can make calls to web services and map them to object members (properties and methods).
+
+```php
+$client = new \SoapClient('https://www.dataaccess.com/webservicesserver/NumberConversion.wso?WSDL');
+
+$request = ['ubiNum' => 15665];
+$response = $client->NumberToWords($request);
+
+echo $response->NumberToWordsResult;
+```
+
+**Full example:** `src/SOAP/Client.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer soap:client
+php trainer soap:client 42
+```
