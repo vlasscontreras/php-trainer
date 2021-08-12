@@ -2,7 +2,6 @@
 
 namespace Trainer\XML\DOMDocument;
 
-use DOMNodeList;
 use Trainer\Executable;
 
 class XPath extends Executable

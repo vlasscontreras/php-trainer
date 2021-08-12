@@ -2134,6 +2134,31 @@ PHP has 2 type of XML parsers:
     - XMLReader
     - XML Expat parser
 
+#### Building XML
+
+##### DOMDocument
+
+```php
+$domDocument = new \DomDocument();
+$tasks = $domDocument->createElement('Tasks');
+
+$task = $domDocument->createElement('Task', 'Add the SimpleXML version of this example.');
+$task->setAttribute('required', 'true');
+
+$tasks->appendChild($task);
+$domDocument->appendChild($tasks);
+
+echo $domDocument->saveXML();
+```
+
+**Full example:** `src/XML/DOMDocument/Build.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer xml:dom:build
+```
+
 #### XPath
 
 XPath is a major element in the XSLT (eXtensible Stylesheet Language Tranformations) standard. It can be used to navigate through elements and attributes in an XML document.
