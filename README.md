@@ -2120,3 +2120,69 @@ WHERE c_name = 'John Doe'
 The engine will still use the index because the query plan is very smart 🤓 and will notice that we're querying an indexed column, and the result set will contain only records that match the condition, so, it will reduce the query scope to only those records instead of the whole database. Pretty neat, huh? 😃
 
 **Note:** Indexes need to be updated when data is changed, this adds overhead to writing. So use indexes wisely 🧐
+
+### XML
+
+XML (or eXtensible Markup Language) is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable. It is a subset of the Standardized General Markup Language (SGML).
+
+PHP has 2 type of XML parsers:
+
+- **Tree Parsers:** These attempt to parse the entire document at once and transform it into a tree structure.
+    - DOMDocument
+    - SimpleXML
+- **Event-based Parsers:** These work by reading the XML document node by node and providing you the opportunity to hook into events associated with this reading process.
+    - XMLReader
+    - XML Expat parser
+
+#### XPath
+
+XPath is a major element in the XSLT (eXtensible Stylesheet Language Tranformations) standard. It can be used to navigate through elements and attributes in an XML document.
+
+You can use XPath expressions directly in `DOMDocument` and `SimpleXML`.
+
+##### DOMDocument
+
+```php
+$domDocument = new \DomDocument();
+$domDocument->load('library.xml');
+
+$xpath = new \DomXpath($domDocument);
+$results = $xpath->query("//CD/YEAR");
+
+foreach ($domNodeList as $element) {
+    echo '[' . $element->nodeName . '] ';
+
+    foreach ($element->childNodes as $node) {
+        echo $node->nodeValue . PHP_EOL;
+    }
+}
+```
+
+**Full example:** `src/XML/DOMDocument/XPath.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer xml:dom:xpath
+```
+
+##### SimpleXML
+
+```php
+$xml = simplexml_load_file('library.xml');
+$results = $xml->xpath("//CD/YEAR");
+
+foreach ($results as $element) {
+    echo '[' . $element->getName() . '] ';
+
+    echo $element . PHP_EOL;
+}
+```
+
+**Full example:** `src/XML/SimpleXML/XPath.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer xml:simple:xpath
+```

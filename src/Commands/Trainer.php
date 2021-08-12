@@ -44,6 +44,8 @@ class Trainer
         \Trainer\Principles\OpenClosed\OpenClosed::class,
         \Trainer\Principles\SingleResponsibility\SingleResponsibility::class,
         \Trainer\Superglobals\Superglobals::class,
+        \Trainer\XML\DOMDocument\XPath::class,
+        \Trainer\XML\SimpleXML\XPath::class,
     ];
 
     /**
