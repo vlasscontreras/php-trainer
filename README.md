@@ -1023,6 +1023,36 @@ foreach ($fruitArrayObject as $key => $val) {
 echo $fruitArrayObject->S; // Android 12
 ```
 
+#### Generators
+
+The purpose of generators is to mitigate the memory and time problems when accessing/manipulating big iterables. Instead of putting everything in memory at once, we delegate the control individually, per iteration.
+
+```php
+$values = range(1, 1000000000);
+
+foreach ($values as $value) {
+    echo $value . PHP_EOL;
+}
+```
+
+The above most likely will cause a memory exhausted error. Generators come to the rescue!
+
+```php
+function generate(int $start, int $end) {
+    for ($i = $start; $i <= $end; $i++) {
+        yield $i;
+    }
+}
+
+$values = generate(1, 1000000000);
+
+foreach ($values as $value) {
+    echo $value . PHP_EOL;
+}
+```
+
+The script will run from `1` to `1,000,000,000`, no memory exhausted!
+
 ### Features
 
 #### Grouped Imports (PHP ^7.0)
