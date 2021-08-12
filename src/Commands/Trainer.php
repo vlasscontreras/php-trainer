@@ -47,6 +47,7 @@ class Trainer
         \Trainer\XML\DOMDocument\XPath::class,
         \Trainer\XML\DOMDocument\Build::class,
         \Trainer\XML\SimpleXML\XPath::class,
+        \Trainer\XML\SimpleXML\Build::class,
     ];
 
     /**

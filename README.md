@@ -2159,6 +2159,25 @@ echo $domDocument->saveXML();
 php trainer xml:dom:build
 ```
 
+##### SimpleXML
+
+```php
+$tasks = new \SimpleXMLElement('<Tasks></Tasks>');
+
+$task = $tasks->addChild('Task', 'Notify the reader to check the full example');
+$task->addAttribute('required', 'true');
+```
+
+Note that `SimpleXML` is designed after its name, to be simple. It has limitations for which you can rely on the `DOMDocument` class. Check the full example for more information.
+
+**Full example:** `src/XML/SimpleXML/Build.php`
+
+▶️ Run exercise:
+
+```bash
+php trainer xml:simple:build
+```
+
 #### XPath
 
 XPath is a major element in the XSLT (eXtensible Stylesheet Language Tranformations) standard. It can be used to navigate through elements and attributes in an XML document.
